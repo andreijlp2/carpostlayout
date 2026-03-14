@@ -11,21 +11,23 @@ const metrics = [
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
-      {/* Gradient hero background banner */}
-      <div className="absolute inset-0 -z-10 bg-gradient-hero opacity-[0.07]" />
-      <div className="absolute top-0 left-0 right-0 h-[500px] -z-10 bg-gradient-to-b from-[hsl(174,72%,46%)/0.08] to-transparent" />
+    <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
+      {/* Full-width gradient banner background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[hsl(160,100%,45%)] via-[hsl(185,100%,45%)] to-[hsl(210,100%,50%)]" />
 
-      {/* Animated background blobs */}
-      <div className="absolute inset-0 -z-10">
+      {/* Overlay pattern for depth */}
+      <div className="absolute inset-0 -z-[5] opacity-10 bg-[radial-gradient(circle_at_30%_20%,white_0%,transparent_50%),radial-gradient(circle_at_80%_80%,white_0%,transparent_40%)]" />
+
+      {/* Animated blobs */}
+      <div className="absolute inset-0 -z-[5]">
         <motion.div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/5 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
+          className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.6, 0.3] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[hsl(200,85%,50%)/0.05] rounded-full blur-3xl"
-          animate={{ scale: [1, 1.15, 1], x: [0, 20, 0] }}
+          className="absolute bottom-0 right-10 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.2, 1], x: [0, 30, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
@@ -38,9 +40,9 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-sm font-medium text-accent-foreground mb-6"
+              className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-sm px-4 py-1.5 text-sm font-medium text-white mb-6 border border-white/20"
             >
-              <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+              <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
               Plataforma #1 para lojas de veículos
             </motion.div>
 
@@ -48,17 +50,17 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-foreground mb-6"
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white mb-6"
             >
               Venda mais carros com{" "}
-              <span className="text-gradient">automação inteligente</span>
+              <span className="text-white/90 drop-shadow-lg">automação inteligente</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed"
+              className="text-lg text-white/80 max-w-lg mb-8 leading-relaxed"
             >
               O CarPost é a plataforma completa para lojas de veículos que querem organizar estoque, criar anúncios automáticos e gerar mais leads todos os dias.
             </motion.p>
@@ -70,13 +72,13 @@ const HeroSection = () => {
               className="flex flex-col sm:flex-row gap-4"
             >
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-                <Button variant="hero" size="xl">
+                <Button size="xl" className="bg-white text-[hsl(210,100%,40%)] hover:bg-white/90 shadow-lg font-bold">
                   Começar agora
                   <ArrowRight className="ml-1 h-5 w-5" />
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-                <Button variant="heroOutline" size="xl">
+                <Button size="xl" className="border-2 border-white/40 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold">
                   <Play className="mr-1 h-4 w-4" />
                   Testar grátis
                 </Button>
@@ -95,7 +97,7 @@ const HeroSection = () => {
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="rounded-2xl overflow-hidden shadow-hero border border-border">
+              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/20 border border-white/20">
                 <img
                   src={dashboardMockup}
                   alt="Dashboard do CarPost mostrando gestão de veículos"
@@ -104,14 +106,9 @@ const HeroSection = () => {
                 />
               </div>
               <motion.div
-                className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl"
+                className="absolute -bottom-4 -right-4 w-24 h-24 bg-white/10 rounded-full blur-2xl"
                 animate={{ scale: [1, 1.3, 1] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <motion.div
-                className="absolute -top-4 -left-4 w-32 h-32 bg-[hsl(200,85%,50%)/0.08] rounded-full blur-2xl"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               />
             </motion.div>
           </motion.div>
@@ -128,13 +125,13 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.6 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
             >
               <motion.div
-                className="text-3xl lg:text-4xl font-extrabold text-foreground"
+                className="text-3xl lg:text-4xl font-extrabold text-white"
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 {m.value}
               </motion.div>
-              <div className="text-sm text-muted-foreground mt-1">{m.label}</div>
+              <div className="text-sm text-white/70 mt-1">{m.label}</div>
             </motion.div>
           ))}
         </div>
