@@ -124,7 +124,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.6 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
             >
               <motion.div
-                className="text-3xl lg:text-4xl font-extrabold text-white"
+                className="text-3xl lg:text-4xl font-extrabold text-foreground"
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
