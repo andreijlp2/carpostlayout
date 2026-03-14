@@ -1,8 +1,23 @@
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
-import { motion } from "framer-motion";
-import dashboardMockup from "@/assets/dashboard-mockup.png";
+import { ArrowRight, Play, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
+import clientTrotz from "@/assets/client-trotz.png";
+import clientFt from "@/assets/client-ft.png";
+import clientTotti from "@/assets/client-totti.png";
+import clientDs7 from "@/assets/client-ds7.png";
+import clientPremier from "@/assets/client-premier.png";
+import clientPassarin from "@/assets/client-passarin.png";
+
+const clientStores = [
+  { src: clientTrotz, name: "Trotz Veículos", city: "Xanxerê, SC" },
+  { src: clientFt, name: "FT Multimarcas", city: "SC" },
+  { src: clientTotti, name: "Auto Totti", city: "Chapecó, SC" },
+  { src: clientDs7, name: "DS7 Cars", city: "Chapecó, SC" },
+  { src: clientPremier, name: "Premier Motors", city: "Chapecó, SC" },
+  { src: clientPassarin, name: "Passarin Multimarcas", city: "Chapecó, SC" },
+];
 
 const metrics = [
   { value: "+2.000", label: "veículos anunciados" },
@@ -11,6 +26,23 @@ const metrics = [
 ];
 
 const HeroSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % clientStores.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + clientStores.length) % clientStores.length);
+  }, []);
+
+  const resetAutoplay = useCallback(() => {}, []);
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 4000);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
+
   return (
     <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
       {/* Hero background image */}
@@ -86,30 +118,58 @@ const HeroSection = () => {
           </div>
 
           {/* Right – Dashboard mockup */}
+          {/* Right – Client stores carousel */}
           <motion.div
-            initial={{ opacity: 0, x: 60, rotateY: -5 }}
-            animate={{ opacity: 1, x: 0, rotateY: 0 }}
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="relative"
           >
-            <motion.div
-              className="relative"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/15 border border-border">
-                <img
-                  src={dashboardMockup}
-                  alt="Dashboard do CarPost mostrando gestão de veículos"
+            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/15 border border-border relative group">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentSlide}
+                  src={clientStores[currentSlide].src}
+                  alt={clientStores[currentSlide].name}
                   className="w-full h-auto"
-                  loading="eager"
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -40 }}
+                  transition={{ duration: 0.5 }}
                 />
+              </AnimatePresence>
+
+              {/* Overlay with store info */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p className="text-white font-bold text-lg">{clientStores[currentSlide].name}</p>
+                <p className="text-white/70 text-sm">{clientStores[currentSlide].city}</p>
               </div>
-              <motion.div
-                className="absolute -bottom-4 -right-4 w-24 h-24 bg-white/10 rounded-full blur-2xl"
-                animate={{ scale: [1, 1.3, 1] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
-            </motion.div>
+
+              {/* Nav buttons */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity shadow-md"
+              >
+                <ChevronLeft className="h-5 w-5 text-foreground" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity shadow-md"
+              >
+                <ChevronRight className="h-5 w-5 text-foreground" />
+              </button>
+            </div>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-2 mt-4">
+              {clientStores.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => { setCurrentSlide(i); resetAutoplay(); }}
+                  className={`h-2 rounded-full transition-all duration-300 ${i === currentSlide ? "w-6 bg-primary" : "w-2 bg-foreground/20"}`}
+                />
+              ))}
+            </div>
           </motion.div>
         </div>
 
