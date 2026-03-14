@@ -1,8 +1,23 @@
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
-import { motion } from "framer-motion";
-import dashboardMockup from "@/assets/dashboard-mockup.png";
+import { ArrowRight, Play, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
+import clientTrotz from "@/assets/client-trotz.png";
+import clientFt from "@/assets/client-ft.png";
+import clientTotti from "@/assets/client-totti.png";
+import clientDs7 from "@/assets/client-ds7.png";
+import clientPremier from "@/assets/client-premier.png";
+import clientPassarin from "@/assets/client-passarin.png";
+
+const clientStores = [
+  { src: clientTrotz, name: "Trotz Veículos", city: "Xanxerê, SC" },
+  { src: clientFt, name: "FT Multimarcas", city: "SC" },
+  { src: clientTotti, name: "Auto Totti", city: "Chapecó, SC" },
+  { src: clientDs7, name: "DS7 Cars", city: "Chapecó, SC" },
+  { src: clientPremier, name: "Premier Motors", city: "Chapecó, SC" },
+  { src: clientPassarin, name: "Passarin Multimarcas", city: "Chapecó, SC" },
+];
 
 const metrics = [
   { value: "+2.000", label: "veículos anunciados" },
