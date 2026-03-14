@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { motion } from "framer-motion";
 import dashboardMockup from "@/assets/dashboard-mockup.png";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const metrics = [
   { value: "+2.000", label: "veículos anunciados" },
@@ -12,11 +13,11 @@ const metrics = [
 const HeroSection = () => {
   return (
     <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
-      {/* Full-width gradient banner background */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[hsl(160,100%,45%)] via-[hsl(185,100%,45%)] to-[hsl(210,100%,50%)]" />
-
-      {/* Overlay pattern for depth */}
-      <div className="absolute inset-0 -z-[5] opacity-10 bg-[radial-gradient(circle_at_30%_20%,white_0%,transparent_50%),radial-gradient(circle_at_80%_80%,white_0%,transparent_40%)]" />
+      {/* Hero background image */}
+      <div className="absolute inset-0 -z-10">
+        <img src={heroBg} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-black/30" />
+      </div>
 
       {/* Animated blobs */}
       <div className="absolute inset-0 -z-[5]">
