@@ -108,6 +108,7 @@ export default {
         "fade-in-right": "fade-in-right 0.6s ease-out forwards",
         "scale-in": "scale-in 0.5s ease-out forwards",
         "counter": "counter 0.4s ease-out forwards",
+        "marquee": "marquee 30s linear infinite",
       },
     },
   },
