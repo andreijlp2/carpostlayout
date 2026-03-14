@@ -96,7 +96,7 @@ const HeroSection = () => {
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/20 border border-white/20">
+              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/15 border border-border">
                 <img
                   src={dashboardMockup}
                   alt="Dashboard do CarPost mostrando gestão de veículos"
