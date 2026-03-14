@@ -35,7 +35,7 @@ const TestimonialsSection = () => {
               key={i}
               variants={fadeInUp}
               custom={i}
-              whileHover={{ y: -6, boxShadow: "0 20px 40px -12px rgba(37,99,235,0.1)" }}
+              whileHover={{ y: -6, boxShadow: "0 20px 40px -12px rgba(0,102,255,0.1)" }}
               className="bg-card rounded-2xl p-8 border border-border shadow-card"
             >
               <div className="flex gap-1 mb-4">

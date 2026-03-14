@@ -42,7 +42,7 @@ const FeaturesSection = () => {
               key={i}
               variants={fadeInUp}
               custom={i}
-              whileHover={{ y: -10, boxShadow: "0 25px 50px -12px rgba(37,99,235,0.15)" }}
+              whileHover={{ y: -10, boxShadow: "0 25px 50px -12px rgba(0,102,255,0.15)" }}
               className="group bg-card rounded-2xl p-8 shadow-card border border-border cursor-default"
             >
               <motion.div

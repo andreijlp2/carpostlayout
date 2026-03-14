@@ -40,7 +40,7 @@ const ProblemsSection = () => {
               key={i}
               variants={fadeInUp}
               custom={i}
-              whileHover={{ y: -8, boxShadow: "0 20px 40px -12px rgba(37,99,235,0.12)" }}
+              whileHover={{ y: -8, boxShadow: "0 20px 40px -12px rgba(0,102,255,0.12)" }}
               transition={{ duration: 0.3 }}
               className="bg-card rounded-2xl p-6 shadow-card border border-border cursor-default"
             >
