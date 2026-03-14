@@ -58,7 +58,7 @@ const HeroSection = () => {
 
   useEffect(() => {
     if (!imagesLoaded) return;
-    const interval = setInterval(nextSlide, 4000);
+    const interval = setInterval(nextSlide, 3000);
     return () => clearInterval(interval);
   }, [nextSlide, imagesLoaded]);
 
