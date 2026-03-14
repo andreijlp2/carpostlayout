@@ -143,7 +143,7 @@ const HeroSection = () => {
             transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="rounded-2xl bg-white p-[30px] shadow-2xl shadow-primary/15 border border-border">
+            <div className="rounded-2xl bg-white px-[30px] py-[50px] shadow-2xl shadow-primary/15 border border-border">
               <div className="rounded-xl overflow-hidden relative group aspect-[16/9]">
                 <AnimatePresence initial={false}>
                   <motion.img
