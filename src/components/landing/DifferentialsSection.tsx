@@ -37,7 +37,7 @@ const DifferentialsSection = () => {
               key={i}
               variants={fadeInUp}
               custom={i}
-              whileHover={{ y: -6, boxShadow: "0 20px 40px -12px rgba(37,99,235,0.12)" }}
+              whileHover={{ y: -6, boxShadow: "0 20px 40px -12px rgba(0,102,255,0.12)" }}
               className="flex gap-4 items-start p-6 rounded-2xl bg-card border border-border shadow-card cursor-default"
             >
               <motion.div

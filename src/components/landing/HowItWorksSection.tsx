@@ -45,7 +45,7 @@ const HowItWorksSection = () => {
               )}
               <motion.div
                 className="relative z-10 w-20 h-20 rounded-2xl bg-accent flex items-center justify-center mx-auto mb-5"
-                whileHover={{ scale: 1.1, rotate: 5, backgroundColor: "hsl(217 91% 53% / 0.15)" }}
+                whileHover={{ scale: 1.1, rotate: 5, backgroundColor: "hsl(210 100% 50% / 0.15)" }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <s.icon className="h-8 w-8 text-primary" />
