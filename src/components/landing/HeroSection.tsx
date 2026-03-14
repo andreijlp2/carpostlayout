@@ -144,17 +144,17 @@ const HeroSection = () => {
             className="relative"
           >
             <div className="rounded-2xl bg-white p-[30px] shadow-2xl shadow-primary/15 border border-border">
-              <div className="rounded-xl overflow-hidden relative group">
-                <AnimatePresence mode="wait">
+              <div className="rounded-xl overflow-hidden relative group aspect-[16/9]">
+                <AnimatePresence initial={false}>
                   <motion.img
                     key={currentSlide}
                     src={clientStores[currentSlide].src}
                     alt={clientStores[currentSlide].name}
-                    className="w-full h-auto block"
-                    initial={{ opacity: 0, scale: 1.05 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
                   />
                 </AnimatePresence>
 
