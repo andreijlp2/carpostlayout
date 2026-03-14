@@ -26,6 +26,23 @@ const metrics = [
 ];
 
 const HeroSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % clientStores.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + clientStores.length) % clientStores.length);
+  }, []);
+
+  const resetAutoplay = useCallback(() => {}, []);
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 4000);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
+
   return (
     <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
       {/* Hero background image */}
