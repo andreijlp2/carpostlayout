@@ -23,16 +23,14 @@ export function useScrollAnimation(threshold = 0.1) {
 }
 
 // Framer Motion animation variants
-const smoothEase = [0.22, 1, 0.36, 1] as const;
-
 export const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: smoothEase as unknown as number[] },
+    transition: { duration: 0.6, delay: i * 0.1, ease: "easeOut" as const },
   }),
-} as const;
+};
 
 export const fadeInLeft = {
   hidden: { opacity: 0, x: -40 },
