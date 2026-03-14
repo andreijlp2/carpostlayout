@@ -14,13 +14,11 @@ const HeroSection = () => {
   return (
     <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
       {/* Hero background image */}
-      <div className="absolute inset-0 -z-10">
-        <img src={heroBg} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-black/30" />
-      </div>
+      <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
+      <div className="absolute inset-0 bg-black/40 z-0" />
 
       {/* Animated blobs */}
-      <div className="absolute inset-0 -z-[5]">
+      <div className="absolute inset-0 z-0">
         <motion.div
           className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl"
           animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.6, 0.3] }}
@@ -33,7 +31,7 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="relative z-10 container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left */}
           <div>
