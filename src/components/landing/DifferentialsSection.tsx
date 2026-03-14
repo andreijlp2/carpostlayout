@@ -1,4 +1,5 @@
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/hooks/use-scroll-animation";
 import { Rocket, MousePointerClick, Plug, Sparkles, Globe } from "lucide-react";
 
 const diffs = [
@@ -10,39 +11,49 @@ const diffs = [
 ];
 
 const DifferentialsSection = () => {
-  const { ref, isVisible } = useScrollAnimation();
-
   return (
-    <section className="py-20 lg:py-28 bg-secondary/50" ref={ref}>
+    <section className="py-20 lg:py-28 bg-secondary/50">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4">
-            Por que escolher o CarPost
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Diferenciais que fazem do CarPost a melhor escolha para sua loja.
-          </p>
-        </div>
+        <motion.div
+          className="text-center max-w-2xl mx-auto mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fadeInUp}
+        >
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4">Por que escolher o CarPost</h2>
+          <p className="text-muted-foreground text-lg">Diferenciais que fazem do CarPost a melhor escolha para sua loja.</p>
+        </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <motion.div
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={staggerContainer}
+        >
           {diffs.map((d, i) => (
-            <div
+            <motion.div
               key={i}
-              className={`flex gap-4 items-start p-6 rounded-2xl bg-card border border-border shadow-card hover:shadow-card-hover transition-all duration-300 ${
-                isVisible ? "animate-fade-in" : "opacity-0"
-              }`}
-              style={{ animationDelay: `${i * 0.08}s` }}
+              variants={fadeInUp}
+              custom={i}
+              whileHover={{ y: -6, boxShadow: "0 20px 40px -12px rgba(37,99,235,0.12)" }}
+              className="flex gap-4 items-start p-6 rounded-2xl bg-card border border-border shadow-card cursor-default"
             >
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <motion.div
+                className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0"
+                whileHover={{ scale: 1.2, rotate: 10 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 <d.icon className="h-5 w-5 text-primary" />
-              </div>
+              </motion.div>
               <div>
                 <h3 className="font-bold text-foreground mb-1">{d.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{d.desc}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
