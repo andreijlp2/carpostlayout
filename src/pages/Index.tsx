@@ -1,14 +1,29 @@
+import Navbar from "@/components/landing/Navbar";
+import HeroSection from "@/components/landing/HeroSection";
+import ProblemsSection from "@/components/landing/ProblemsSection";
+import SolutionSection from "@/components/landing/SolutionSection";
+import FeaturesSection from "@/components/landing/FeaturesSection";
+import HowItWorksSection from "@/components/landing/HowItWorksSection";
+import DifferentialsSection from "@/components/landing/DifferentialsSection";
+import PricingSection from "@/components/landing/PricingSection";
+import TestimonialsSection from "@/components/landing/TestimonialsSection";
+import CTASection from "@/components/landing/CTASection";
+import Footer from "@/components/landing/Footer";
+
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-5xl font-bold tracking-tight text-foreground">
-          CarPost
-        </h1>
-        <p className="text-lg text-muted-foreground">
-          Seu espaço automotivo
-        </p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <HeroSection />
+      <ProblemsSection />
+      <SolutionSection />
+      <FeaturesSection />
+      <HowItWorksSection />
+      <DifferentialsSection />
+      <PricingSection />
+      <TestimonialsSection />
+      <CTASection />
+      <Footer />
     </div>
   );
 };
