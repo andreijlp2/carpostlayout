@@ -151,10 +151,13 @@ const HeroSection = () => {
                     src={clientStores[currentSlide].src}
                     alt={clientStores[currentSlide].name}
                     className="absolute inset-0 w-full h-full object-cover"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    initial={{ opacity: 0, scale: 1 }}
+                    animate={{ opacity: 1, scale: 1.06 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    transition={{
+                      opacity: { duration: 0.8, ease: "easeInOut" },
+                      scale: { duration: 4, ease: "easeOut" },
+                    }}
                   />
                 </AnimatePresence>
 
