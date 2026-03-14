@@ -15,7 +15,7 @@ const HeroSection = () => {
     <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
       {/* Hero background image */}
       <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
-      <div className="absolute inset-0 bg-black/40 z-0" />
+      <div className="absolute inset-0 bg-white/20 z-0" />
 
       {/* Animated blobs */}
       <div className="absolute inset-0 z-0">
