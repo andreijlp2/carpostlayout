@@ -117,7 +117,6 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Right – Dashboard mockup */}
           {/* Right – Client stores carousel */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
@@ -125,39 +124,41 @@ const HeroSection = () => {
             transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/15 border border-border relative group">
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentSlide}
-                  src={clientStores[currentSlide].src}
-                  alt={clientStores[currentSlide].name}
-                  className="w-full h-auto"
-                  initial={{ opacity: 0, x: 40 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -40 }}
-                  transition={{ duration: 0.5 }}
-                />
-              </AnimatePresence>
+            <div className="rounded-2xl bg-white p-[30px] shadow-2xl shadow-primary/15 border border-border">
+              <div className="rounded-xl overflow-hidden relative group">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentSlide}
+                    src={clientStores[currentSlide].src}
+                    alt={clientStores[currentSlide].name}
+                    className="w-full h-auto block"
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  />
+                </AnimatePresence>
 
-              {/* Overlay with store info */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                <p className="text-white font-bold text-lg">{clientStores[currentSlide].name}</p>
-                <p className="text-white/70 text-sm">{clientStores[currentSlide].city}</p>
+                {/* Overlay with store info */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <p className="text-white font-bold text-lg">{clientStores[currentSlide].name}</p>
+                  <p className="text-white/70 text-sm">{clientStores[currentSlide].city}</p>
+                </div>
+
+                {/* Nav buttons */}
+                <button
+                  onClick={prevSlide}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg hover:scale-110"
+                >
+                  <ChevronLeft className="h-5 w-5 text-foreground" />
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg hover:scale-110"
+                >
+                  <ChevronRight className="h-5 w-5 text-foreground" />
+                </button>
               </div>
-
-              {/* Nav buttons */}
-              <button
-                onClick={prevSlide}
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity shadow-md"
-              >
-                <ChevronLeft className="h-5 w-5 text-foreground" />
-              </button>
-              <button
-                onClick={nextSlide}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity shadow-md"
-              >
-                <ChevronRight className="h-5 w-5 text-foreground" />
-              </button>
             </div>
 
             {/* Dots */}
