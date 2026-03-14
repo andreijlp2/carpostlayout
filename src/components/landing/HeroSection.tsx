@@ -12,6 +12,10 @@ const metrics = [
 const HeroSection = () => {
   return (
     <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
+      {/* Gradient hero background banner */}
+      <div className="absolute inset-0 -z-10 bg-gradient-hero opacity-[0.07]" />
+      <div className="absolute top-0 left-0 right-0 h-[500px] -z-10 bg-gradient-to-b from-[hsl(174,72%,46%)/0.08] to-transparent" />
+
       {/* Animated background blobs */}
       <div className="absolute inset-0 -z-10">
         <motion.div
@@ -20,7 +24,7 @@ const HeroSection = () => {
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-3xl"
+          className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[hsl(200,85%,50%)/0.05] rounded-full blur-3xl"
           animate={{ scale: [1, 1.15, 1], x: [0, 20, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -105,7 +109,7 @@ const HeroSection = () => {
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.div
-                className="absolute -top-4 -left-4 w-32 h-32 bg-primary/5 rounded-full blur-2xl"
+                className="absolute -top-4 -left-4 w-32 h-32 bg-[hsl(200,85%,50%)/0.08] rounded-full blur-2xl"
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               />

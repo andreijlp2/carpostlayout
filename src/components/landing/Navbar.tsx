@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Car, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logoIcon from "@/assets/logoicone.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -16,20 +17,21 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[hsl(217,91%,30%)] shadow-lg shadow-[hsl(217,91%,53%)/0.3]"
-          : "bg-[hsl(217,91%,35%)]"
+          ? "bg-[hsl(195,80%,20%)] shadow-lg shadow-[hsl(174,72%,46%)/0.2]"
+          : "bg-[hsl(195,75%,25%)]"
       }`}
     >
       {/* Neon glow border bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(195,100%,60%)] to-transparent opacity-80" />
+      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(170,75%,48%)] to-transparent opacity-80" />
 
       <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
         <a href="#" className="flex items-center gap-2 font-bold text-xl text-white">
-          <div className="relative">
-            <Car className="h-6 w-6 text-[hsl(195,100%,70%)]" />
-            <div className="absolute inset-0 blur-sm bg-[hsl(195,100%,60%)/0.4] rounded-full" />
-          </div>
-          CarPost
+          <img
+            src={logoIcon}
+            alt="CarPost"
+            className="h-[50px] w-auto md:h-[60px]"
+          />
+          <span className="text-lg font-extrabold tracking-tight">CarPost</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -43,7 +45,7 @@ const Navbar = () => {
           <Button variant="ghost" size="sm" className="text-white/80 hover:text-white hover:bg-white/10">
             Entrar
           </Button>
-          <Button size="sm" className="bg-white text-[hsl(217,91%,35%)] hover:bg-white/90 shadow-md shadow-[hsl(195,100%,60%)/0.3] font-semibold">
+          <Button size="sm" className="bg-white text-[hsl(195,75%,25%)] hover:bg-white/90 shadow-md shadow-[hsl(170,75%,48%)/0.3] font-semibold">
             Começar agora
           </Button>
         </div>
@@ -54,13 +56,13 @@ const Navbar = () => {
       </div>
 
       {open && (
-        <div className="md:hidden bg-[hsl(217,91%,28%)] border-t border-white/10 px-4 pb-4 animate-fade-in">
+        <div className="md:hidden bg-[hsl(195,80%,18%)] border-t border-white/10 px-4 pb-4 animate-fade-in">
           <div className="flex flex-col gap-3 pt-2">
             <a href="#funcionalidades" className="text-sm text-white/70 hover:text-white py-2" onClick={() => setOpen(false)}>Funcionalidades</a>
             <a href="#como-funciona" className="text-sm text-white/70 hover:text-white py-2" onClick={() => setOpen(false)}>Como funciona</a>
             <a href="#planos" className="text-sm text-white/70 hover:text-white py-2" onClick={() => setOpen(false)}>Planos</a>
             <a href="#depoimentos" className="text-sm text-white/70 hover:text-white py-2" onClick={() => setOpen(false)}>Depoimentos</a>
-            <Button size="sm" className="w-full mt-2 bg-white text-[hsl(217,91%,35%)] hover:bg-white/90 font-semibold">
+            <Button size="sm" className="w-full mt-2 bg-white text-[hsl(195,75%,25%)] hover:bg-white/90 font-semibold">
               Começar agora
             </Button>
           </div>
