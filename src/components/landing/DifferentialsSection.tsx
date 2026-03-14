@@ -21,7 +21,7 @@ const DifferentialsSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUp}
         >
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4">Por que escolher o CarPost</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">Por que escolher o CarPost</h2>
           <p className="text-muted-foreground text-lg">Diferenciais que fazem do CarPost a melhor escolha para sua loja.</p>
         </motion.div>
 

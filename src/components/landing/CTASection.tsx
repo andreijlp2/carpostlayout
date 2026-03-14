@@ -37,7 +37,7 @@ const CTASection = () => {
               Pronto para vender mais carros?
             </motion.h2>
             <motion.p
-              className="text-white/80 text-lg max-w-xl mx-auto mb-8"
+              className="text-white/80 text-base sm:text-lg max-w-xl mx-auto mb-6 sm:mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

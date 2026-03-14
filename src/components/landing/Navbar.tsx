@@ -27,7 +27,7 @@ const Navbar = () => {
           <img
             src={scrolled ? logoColor : logoCar}
             alt="CarPost"
-            className="h-[80px] w-auto py-3 transition-all duration-300"
+            className="h-[50px] sm:h-[65px] lg:h-[80px] w-auto py-2 sm:py-3 transition-all duration-300"
           />
         </a>
 
