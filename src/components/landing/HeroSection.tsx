@@ -145,18 +145,18 @@ const HeroSection = () => {
           >
             <div className="rounded-2xl bg-white px-[30px] py-[50px] shadow-2xl shadow-primary/15 border border-border">
               <div className="rounded-xl overflow-hidden relative group aspect-[16/9]">
-                <AnimatePresence initial={false}>
+                <AnimatePresence mode="sync" initial={false}>
                   <motion.img
                     key={currentSlide}
                     src={clientStores[currentSlide].src}
                     alt={clientStores[currentSlide].name}
                     className="absolute inset-0 w-full h-full object-cover"
-                    initial={{ opacity: 0, scale: 1 }}
-                    animate={{ opacity: 1, scale: 1.06 }}
-                    exit={{ opacity: 0 }}
+                    initial={{ opacity: 0, scale: 1.02 }}
+                    animate={{ opacity: 1, scale: 1.08 }}
+                    exit={{ opacity: 0, scale: 1.1 }}
                     transition={{
-                      opacity: { duration: 0.8, ease: "easeInOut" },
-                      scale: { duration: 3, ease: "easeOut" },
+                      opacity: { duration: 1.4, ease: [0.4, 0, 0.2, 1] },
+                      scale: { duration: 3.5, ease: "easeOut" },
                     }}
                   />
                 </AnimatePresence>
