@@ -28,7 +28,7 @@ const CTASection = () => {
 
           <div className="relative z-10">
             <motion.h2
-              className="text-3xl lg:text-5xl font-extrabold text-white mb-6"
+              className="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-white mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
