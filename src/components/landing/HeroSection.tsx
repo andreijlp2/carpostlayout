@@ -197,7 +197,7 @@ const HeroSection = () => {
         </div>
 
         {/* Metrics */}
-        <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
+        <div className="mt-12 sm:mt-20 grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto">
           {metrics.map((m, i) => (
             <motion.div
               key={i}
