@@ -71,7 +71,7 @@ const HeroSection = () => {
               className="flex flex-col sm:flex-row gap-4"
             >
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-                <Button size="xl" className="bg-white text-[hsl(210,100%,40%)] hover:bg-white/90 shadow-lg font-bold">
+                <Button size="xl" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg font-bold">
                   Começar agora
                   <ArrowRight className="ml-1 h-5 w-5" />
                 </Button>
