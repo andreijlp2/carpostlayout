@@ -77,7 +77,7 @@ const HeroSection = () => {
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-                <Button size="xl" className="border-2 border-white/40 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold">
+                <Button size="xl" className="border-2 border-foreground/20 bg-white/60 backdrop-blur-sm text-foreground hover:bg-white/80 font-semibold">
                   <Play className="mr-1 h-4 w-4" />
                   Testar grátis
                 </Button>
