@@ -15,7 +15,7 @@ const HeroSection = () => {
     <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
       {/* Hero background image */}
       <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
-      <div className="absolute inset-0 bg-black/40 z-0" />
+      <div className="absolute inset-0 bg-white/20 z-0" />
 
       {/* Animated blobs */}
       <div className="absolute inset-0 z-0">
@@ -39,9 +39,9 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-sm px-4 py-1.5 text-sm font-medium text-white mb-6 border border-white/20"
+              className="inline-flex items-center gap-2 rounded-full bg-primary/10 backdrop-blur-sm px-4 py-1.5 text-sm font-medium text-primary mb-6 border border-primary/20"
             >
-              <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
+              <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
               Plataforma #1 para lojas de veículos
             </motion.div>
 
@@ -49,17 +49,17 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white mb-6"
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-foreground mb-6"
             >
               Venda mais carros com{" "}
-              <span className="text-white/90 drop-shadow-lg">automação inteligente</span>
+              <span className="text-gradient">automação inteligente</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="text-lg text-white/80 max-w-lg mb-8 leading-relaxed"
+              className="text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed"
             >
               O CarPost é a plataforma completa para lojas de veículos que querem organizar estoque, criar anúncios automáticos e gerar mais leads todos os dias.
             </motion.p>
@@ -71,13 +71,13 @@ const HeroSection = () => {
               className="flex flex-col sm:flex-row gap-4"
             >
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-                <Button size="xl" className="bg-white text-[hsl(210,100%,40%)] hover:bg-white/90 shadow-lg font-bold">
+                <Button size="xl" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg font-bold">
                   Começar agora
                   <ArrowRight className="ml-1 h-5 w-5" />
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-                <Button size="xl" className="border-2 border-white/40 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold">
+                <Button size="xl" className="border-2 border-foreground/20 bg-white/60 backdrop-blur-sm text-foreground hover:bg-white/80 font-semibold">
                   <Play className="mr-1 h-4 w-4" />
                   Testar grátis
                 </Button>
@@ -96,7 +96,7 @@ const HeroSection = () => {
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/20 border border-white/20">
+              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/15 border border-border">
                 <img
                   src={dashboardMockup}
                   alt="Dashboard do CarPost mostrando gestão de veículos"
@@ -124,13 +124,13 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.6 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
             >
               <motion.div
-                className="text-3xl lg:text-4xl font-extrabold text-white"
+                className="text-3xl lg:text-4xl font-extrabold text-foreground"
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 {m.value}
               </motion.div>
-              <div className="text-sm text-white/70 mt-1">{m.label}</div>
+              <div className="text-sm text-muted-foreground mt-1">{m.label}</div>
             </motion.div>
           ))}
         </div>
