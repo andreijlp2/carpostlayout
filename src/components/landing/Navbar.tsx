@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import logoIcon from "@/assets/logoicone.png";
+import logoCar from "@/assets/logocar1.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
