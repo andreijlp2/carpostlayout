@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { motion } from "framer-motion";
 import dashboardMockup from "@/assets/dashboard-mockup.png";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const metrics = [
   { value: "+2.000", label: "veículos anunciados" },
