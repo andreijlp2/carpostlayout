@@ -150,7 +150,7 @@ const CustomerJourneySection = () => {
 
           {/* Card area */}
           <div
-            className="relative overflow-hidden rounded-2xl min-h-[380px] sm:min-h-[340px]"
+            className="relative overflow-hidden rounded-2xl min-h-[420px] sm:min-h-[340px]"
             onTouchStart={(e) => {
               const startX = e.touches[0].clientX;
               const handleEnd = (ev: TouchEvent) => {
