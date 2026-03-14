@@ -24,12 +24,12 @@ const Navbar = () => {
       {/* Neon glow border bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(170,75%,48%)] to-transparent opacity-80" />
 
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
+      <div className="container mx-auto flex h-24 items-center justify-between px-4 lg:px-8">
         <a href="#" className="flex items-center">
           <img
             src={logoCar}
             alt="CarPost"
-            className="h-[95px] w-auto p-2"
+            className="h-[80px] w-auto py-3"
           />
         </a>
 
