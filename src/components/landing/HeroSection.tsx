@@ -156,7 +156,7 @@ const HeroSection = () => {
                     exit={{ opacity: 0 }}
                     transition={{
                       opacity: { duration: 0.8, ease: "easeInOut" },
-                      scale: { duration: 4, ease: "easeOut" },
+                      scale: { duration: 3, ease: "easeOut" },
                     }}
                   />
                 </AnimatePresence>
