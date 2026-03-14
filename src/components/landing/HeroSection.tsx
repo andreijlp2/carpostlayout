@@ -49,10 +49,10 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white mb-6"
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-foreground mb-6"
             >
               Venda mais carros com{" "}
-              <span className="text-white/90 drop-shadow-lg">automação inteligente</span>
+              <span className="text-gradient">automação inteligente</span>
             </motion.h1>
 
             <motion.p
