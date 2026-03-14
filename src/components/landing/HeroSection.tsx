@@ -27,6 +27,24 @@ const metrics = [
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  // Preload all images before starting carousel
+  useEffect(() => {
+    let loaded = 0;
+    clientStores.forEach((store) => {
+      const img = new Image();
+      img.src = store.src;
+      img.onload = () => {
+        loaded++;
+        if (loaded === clientStores.length) setImagesLoaded(true);
+      };
+      img.onerror = () => {
+        loaded++;
+        if (loaded === clientStores.length) setImagesLoaded(true);
+      };
+    });
+  }, []);
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % clientStores.length);
@@ -39,9 +57,10 @@ const HeroSection = () => {
   const resetAutoplay = useCallback(() => {}, []);
 
   useEffect(() => {
+    if (!imagesLoaded) return;
     const interval = setInterval(nextSlide, 4000);
     return () => clearInterval(interval);
-  }, [nextSlide]);
+  }, [nextSlide, imagesLoaded]);
 
   return (
     <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
