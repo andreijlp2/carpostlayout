@@ -20,7 +20,7 @@ const HowItWorksSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUp}
         >
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4">Como funciona</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">Como funciona</h2>
           <p className="text-muted-foreground text-lg">Em 4 passos simples, sua loja começa a vender mais.</p>
         </motion.div>
 

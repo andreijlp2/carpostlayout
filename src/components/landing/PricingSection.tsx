@@ -29,12 +29,12 @@ const PricingSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUp}
         >
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4">Escolha o plano ideal</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">Escolha o plano ideal</h2>
           <p className="text-muted-foreground text-lg">Planos flexíveis que acompanham o crescimento da sua loja.</p>
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}

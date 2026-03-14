@@ -150,7 +150,7 @@ const CustomerJourneySection = () => {
 
           {/* Card area */}
           <div
-            className="relative overflow-hidden rounded-2xl min-h-[380px] sm:min-h-[340px]"
+            className="relative overflow-hidden rounded-2xl min-h-[420px] sm:min-h-[340px]"
             onTouchStart={(e) => {
               const startX = e.touches[0].clientX;
               const handleEnd = (ev: TouchEvent) => {
@@ -170,7 +170,7 @@ const CustomerJourneySection = () => {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className={`rounded-2xl border p-8 sm:p-10 shadow-card bg-card ${isResult ? "ring-2 ring-primary/20" : ""}`}
+                className={`rounded-2xl border p-5 sm:p-8 md:p-10 shadow-card bg-card ${isResult ? "ring-2 ring-primary/20" : ""}`}
               >
                 <div className="flex flex-col sm:flex-row gap-6 items-start">
                   {/* Icon */}

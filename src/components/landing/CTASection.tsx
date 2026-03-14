@@ -8,7 +8,7 @@ const CTASection = () => {
     <section className="py-20 lg:py-28">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
-          className="relative rounded-3xl overflow-hidden p-12 lg:p-20 text-center bg-gradient-to-br from-[hsl(160,100%,45%)] via-[hsl(185,100%,45%)] to-[hsl(210,100%,50%)]"
+          className="relative rounded-2xl sm:rounded-3xl overflow-hidden p-8 sm:p-12 lg:p-20 text-center bg-gradient-to-br from-[hsl(160,100%,45%)] via-[hsl(185,100%,45%)] to-[hsl(210,100%,50%)]"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -28,7 +28,7 @@ const CTASection = () => {
 
           <div className="relative z-10">
             <motion.h2
-              className="text-3xl lg:text-5xl font-extrabold text-white mb-6"
+              className="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-white mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -37,7 +37,7 @@ const CTASection = () => {
               Pronto para vender mais carros?
             </motion.h2>
             <motion.p
-              className="text-white/80 text-lg max-w-xl mx-auto mb-8"
+              className="text-white/80 text-base sm:text-lg max-w-xl mx-auto mb-6 sm:mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

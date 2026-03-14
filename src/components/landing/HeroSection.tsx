@@ -63,7 +63,7 @@ const HeroSection = () => {
   }, [nextSlide, imagesLoaded]);
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
+    <section className="relative pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
       {/* Hero background image */}
       <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
       <div className="absolute inset-0 bg-white/20 z-0" />
@@ -100,7 +100,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-foreground mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-foreground mb-4 sm:mb-6"
             >
               Venda mais carros com{" "}
               <span className="text-gradient">automação inteligente</span>
@@ -110,7 +110,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed"
+              className="text-base sm:text-lg text-muted-foreground max-w-lg mb-6 sm:mb-8 leading-relaxed"
             >
               O CarPost é a plataforma completa para lojas de veículos que querem organizar estoque, criar anúncios automáticos e gerar mais leads todos os dias.
             </motion.p>
@@ -143,7 +143,7 @@ const HeroSection = () => {
             transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="rounded-2xl bg-white px-[30px] py-[50px] shadow-2xl shadow-primary/15 border border-border">
+            <div className="rounded-2xl bg-white px-4 py-6 sm:px-[30px] sm:py-[50px] shadow-2xl shadow-primary/15 border border-border">
               <div className="rounded-xl overflow-hidden relative group aspect-[16/9]">
                 <AnimatePresence mode="sync" initial={false}>
                   <motion.img
@@ -197,7 +197,7 @@ const HeroSection = () => {
         </div>
 
         {/* Metrics */}
-        <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
+        <div className="mt-12 sm:mt-20 grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto">
           {metrics.map((m, i) => (
             <motion.div
               key={i}
@@ -207,7 +207,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.6 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
             >
               <motion.div
-                className="text-3xl lg:text-4xl font-extrabold text-foreground"
+                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground"
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >

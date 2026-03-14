@@ -26,7 +26,7 @@ const SolutionSection = () => {
               <Zap className="h-4 w-4" />
               Solução completa
             </div>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4 sm:mb-6">
               Uma plataforma completa para vender mais veículos
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">

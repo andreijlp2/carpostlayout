@@ -22,12 +22,12 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex h-24 items-center justify-between px-4 lg:px-8">
+      <div className="container mx-auto flex h-16 sm:h-20 lg:h-24 items-center justify-between px-4 lg:px-8">
         <a href="#" className="flex items-center">
           <img
             src={scrolled ? logoColor : logoCar}
             alt="CarPost"
-            className="h-[80px] w-auto py-3 transition-all duration-300"
+            className="h-[50px] sm:h-[65px] lg:h-[80px] w-auto py-2 sm:py-3 transition-all duration-300"
           />
         </a>
 
