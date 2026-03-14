@@ -49,12 +49,12 @@ const LogoCarouselSection = () => {
           {doubledLogos.map((logo, i) => (
             <div
               key={i}
-              className="flex-shrink-0 mx-4 sm:mx-6 flex items-center justify-center h-12 px-4 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default"
+              className="flex-shrink-0 mx-4 sm:mx-6 flex items-center justify-center w-32 h-10 px-2 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default"
             >
               <img
                 src={logo.src}
                 alt={logo.name}
-                className="h-full w-auto object-contain"
+                className="max-h-full max-w-full object-contain"
               />
             </div>
           ))}
