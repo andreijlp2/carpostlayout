@@ -63,7 +63,7 @@ const HeroSection = () => {
   }, [nextSlide, imagesLoaded]);
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
+    <section className="relative pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
       {/* Hero background image */}
       <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
       <div className="absolute inset-0 bg-white/20 z-0" />
