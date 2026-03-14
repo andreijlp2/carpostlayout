@@ -8,7 +8,7 @@ const CTASection = () => {
     <section className="py-20 lg:py-28">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
-          className="relative rounded-3xl overflow-hidden p-12 lg:p-20 text-center bg-gradient-to-br from-[hsl(160,100%,45%)] via-[hsl(185,100%,45%)] to-[hsl(210,100%,50%)]"
+          className="relative rounded-2xl sm:rounded-3xl overflow-hidden p-8 sm:p-12 lg:p-20 text-center bg-gradient-to-br from-[hsl(160,100%,45%)] via-[hsl(185,100%,45%)] to-[hsl(210,100%,50%)]"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
