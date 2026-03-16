@@ -13,7 +13,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section id="funcionalidades" className="py-20 lg:py-28 bg-secondary/60">
+    <section id="funcionalidades" className="py-20 lg:py-28">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           className="text-center max-w-2xl mx-auto mb-16"
@@ -22,17 +22,17 @@ const FeaturesSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUp}
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">Funcionalidades</span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4 mt-3">
+          <span className="section-subtitle text-primary">Funcionalidades</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">
             Tudo que sua loja precisa em um só lugar
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-base sm:text-lg">
             Funcionalidades pensadas para automatizar e escalar suas vendas de veículos.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -44,11 +44,11 @@ const FeaturesSection = () => {
               variants={fadeInUp}
               custom={i}
               whileHover={{ y: -10 }}
-              className="group bg-card rounded-xl p-8 shadow-card border border-border hover:shadow-card-hover hover:border-primary/30 transition-all duration-300 cursor-default relative overflow-hidden"
+              className="group bg-card rounded-xl p-8 shadow-card border border-border hover:shadow-card-hover hover:border-primary/20 transition-all duration-400 cursor-default relative overflow-hidden"
             >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
-                <f.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              <div className="w-16 h-16 rounded-full bg-primary/8 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:shadow-glow transition-all duration-400">
+                <f.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors duration-400" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">{f.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
