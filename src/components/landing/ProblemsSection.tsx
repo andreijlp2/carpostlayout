@@ -11,29 +11,29 @@ const services = [
 
 const ProblemsSection = () => {
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-24 lg:py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-16 lg:mb-20"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "-80px" }}
           variants={fadeInUp}
         >
           <span className="section-subtitle text-primary">O que oferecemos</span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">
             Nossos Serviços
           </h2>
-          <p className="text-muted-foreground text-base sm:text-lg">
+          <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
             Soluções completas para sua loja de veículos crescer de forma inteligente.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7"
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7 lg:gap-8"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "-80px" }}
           variants={staggerContainer}
         >
           {services.map((p, i) => (
@@ -41,24 +41,20 @@ const ProblemsSection = () => {
               key={i}
               variants={fadeInUp}
               custom={i}
-              whileHover={{ y: -12 }}
-              transition={{ duration: 0.3 }}
-              className="group bg-card rounded-xl p-7 sm:p-8 shadow-card border border-border hover:shadow-card-hover transition-all duration-400 cursor-default relative overflow-hidden text-center"
+              whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              className="group bg-card rounded-2xl p-8 shadow-card border border-border hover:shadow-card-hover transition-all duration-500 cursor-default relative overflow-hidden text-center"
             >
-              {/* Top gradient bar on hover */}
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
-              
-              <div className="w-18 h-18 w-[72px] h-[72px] rounded-full bg-primary/8 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:shadow-glow transition-all duration-400">
-                <p.icon className="h-8 w-8 text-primary group-hover:text-primary-foreground transition-colors duration-400" />
+
+              <div className="w-[72px] h-[72px] rounded-2xl bg-primary/8 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:shadow-glow transition-all duration-500">
+                <p.icon className="h-8 w-8 text-primary group-hover:text-primary-foreground transition-colors duration-500" />
               </div>
               <h3 className="font-bold text-foreground mb-3 text-lg">{p.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
-              
-              <motion.div
-                className="mt-5 text-primary font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
-              >
+
+              <div className="mt-5 text-primary font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
                 Saiba mais →
-              </motion.div>
+              </div>
             </motion.div>
           ))}
         </motion.div>

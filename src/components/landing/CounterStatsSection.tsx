@@ -34,16 +34,16 @@ function useCountUp(end: number, duration = 2000, trigger = false) {
 const CounterItem = ({ item, inView }: { item: typeof counters[0]; inView: boolean }) => {
   const count = useCountUp(item.value, 2200, inView);
   const Icon = item.icon;
-  
+
   return (
     <div className="text-center">
-      <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4 border border-white/10">
+      <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-5 border border-white/10">
         <Icon className="h-7 w-7 text-accent" />
       </div>
       <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-2">
         {count.toLocaleString("pt-BR")}{item.suffix}
       </div>
-      <div className="text-sm sm:text-base text-white/60 font-medium">{item.label}</div>
+      <div className="text-sm sm:text-base text-white/55 font-medium">{item.label}</div>
     </div>
   );
 };
@@ -62,22 +62,21 @@ const CounterStatsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-20 lg:py-24 bg-gradient-hero overflow-hidden">
-      {/* Decorative shapes */}
+    <section ref={sectionRef} className="relative py-24 lg:py-28 bg-gradient-hero overflow-hidden">
       <motion.div
-        className="absolute top-8 left-[10%] w-12 h-12 border-2 border-white/10 rounded-full"
-        animate={{ y: [0, -15, 0] }}
-        transition={{ duration: 5, repeat: Infinity }}
+        className="absolute top-10 left-[8%] w-14 h-14 border-2 border-white/[0.08] rounded-full"
+        animate={{ y: [0, -18, 0] }}
+        transition={{ duration: 6, repeat: Infinity }}
       />
       <motion.div
-        className="absolute bottom-8 right-[10%] w-8 h-8 bg-white/5 rounded-lg rotate-45"
-        animate={{ rotate: [45, 135, 45] }}
-        transition={{ duration: 7, repeat: Infinity }}
+        className="absolute bottom-10 right-[8%] w-10 h-10 bg-white/[0.04] rounded-lg rotate-45"
+        animate={{ rotate: [45, 180, 45] }}
+        transition={{ duration: 8, repeat: Infinity }}
       />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <motion.div
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}

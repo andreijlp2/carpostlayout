@@ -14,10 +14,10 @@ const faqs = [
 
 const FAQItem = ({ faq, index }: { faq: typeof faqs[0]; index: number }) => {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   return (
     <motion.div
-      className="border border-border rounded-xl overflow-hidden bg-card hover:shadow-card transition-shadow duration-300"
+      className="border border-border rounded-2xl overflow-hidden bg-card hover:shadow-card transition-shadow duration-400"
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -25,7 +25,7 @@ const FAQItem = ({ faq, index }: { faq: typeof faqs[0]; index: number }) => {
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-5 sm:p-6 text-left group"
+        className="w-full flex items-center justify-between p-6 text-left group"
       >
         <span className="font-bold text-foreground text-sm sm:text-base pr-4 group-hover:text-primary transition-colors">
           {faq.q}
@@ -33,7 +33,9 @@ const FAQItem = ({ faq, index }: { faq: typeof faqs[0]; index: number }) => {
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
-          className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${isOpen ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"}`}
+          className={`flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-colors duration-300 ${
+            isOpen ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
+          }`}
         >
           <ChevronDown className="h-4 w-4" />
         </motion.div>
@@ -47,7 +49,7 @@ const FAQItem = ({ faq, index }: { faq: typeof faqs[0]; index: number }) => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0">
+            <div className="px-6 pb-6 pt-0">
               <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
             </div>
           </motion.div>
@@ -59,10 +61,10 @@ const FAQItem = ({ faq, index }: { faq: typeof faqs[0]; index: number }) => {
 
 const FAQSection = () => {
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-24 lg:py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-14"
+          className="text-center max-w-2xl mx-auto mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -77,7 +79,7 @@ const FAQSection = () => {
           </p>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto space-y-3">
+        <div className="max-w-3xl mx-auto space-y-4">
           {faqs.map((faq, i) => (
             <FAQItem key={i} faq={faq} index={i} />
           ))}

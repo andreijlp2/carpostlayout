@@ -23,25 +23,29 @@ const plans = [
 
 const PricingSection = () => {
   return (
-    <section id="planos" className="py-20 lg:py-28 bg-secondary/50">
+    <section id="planos" className="py-24 lg:py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-16 lg:mb-20"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "-80px" }}
           variants={fadeInUp}
         >
           <span className="section-subtitle text-primary">Nossos planos</span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">Escolha o plano ideal</h2>
-          <p className="text-muted-foreground text-base sm:text-lg">Planos flexíveis que acompanham o crescimento da sua loja.</p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">
+            Escolha o plano ideal
+          </h2>
+          <p className="text-muted-foreground text-base sm:text-lg">
+            Planos flexíveis que acompanham o crescimento da sua loja.
+          </p>
         </motion.div>
 
         <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 lg:gap-8 max-w-5xl mx-auto"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "-80px" }}
           variants={staggerContainer}
         >
           {plans.map((plan, i) => (
@@ -49,8 +53,8 @@ const PricingSection = () => {
               key={i}
               variants={fadeInUp}
               custom={i}
-              whileHover={{ y: -10 }}
-              className={`relative rounded-2xl overflow-hidden transition-all duration-400 ${
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className={`relative rounded-2xl overflow-hidden transition-all duration-500 ${
                 plan.popular
                   ? "bg-gradient-hero shadow-hero lg:scale-105 z-10"
                   : "bg-card border border-border shadow-card hover:shadow-card-hover"
@@ -61,7 +65,7 @@ const PricingSection = () => {
                   <motion.div
                     className="bg-accent text-accent-foreground text-xs font-bold px-5 py-1.5 rounded-b-xl flex items-center gap-1.5"
                     animate={{ scale: [1, 1.03, 1] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
                   >
                     <Zap className="h-3 w-3" />
                     Mais popular
@@ -69,19 +73,27 @@ const PricingSection = () => {
                 </div>
               )}
 
-              <div className="p-8 pt-10">
+              <div className="p-8 lg:p-9 pt-10">
                 <div className="text-center mb-8">
-                  <h3 className={`text-sm font-bold uppercase tracking-wider mb-2 ${plan.popular ? "text-white/70" : "text-muted-foreground"}`}>{plan.name}</h3>
+                  <h3 className={`text-sm font-bold uppercase tracking-wider mb-2 ${plan.popular ? "text-white/70" : "text-muted-foreground"}`}>
+                    {plan.name}
+                  </h3>
                   <div className="flex items-baseline justify-center gap-1">
-                    <span className={`text-4xl sm:text-5xl font-extrabold ${plan.popular ? "text-white" : "text-foreground"}`}>{plan.price}</span>
-                    <span className={`text-sm ${plan.popular ? "text-white/60" : "text-muted-foreground"}`}>{plan.period}</span>
+                    <span className={`text-4xl sm:text-5xl font-extrabold ${plan.popular ? "text-white" : "text-foreground"}`}>
+                      {plan.price}
+                    </span>
+                    <span className={`text-sm ${plan.popular ? "text-white/55" : "text-muted-foreground"}`}>
+                      {plan.period}
+                    </span>
                   </div>
-                  <p className={`text-sm mt-2 ${plan.popular ? "text-white/50" : "text-muted-foreground"}`}>{plan.desc}</p>
+                  <p className={`text-sm mt-2 ${plan.popular ? "text-white/50" : "text-muted-foreground"}`}>
+                    {plan.desc}
+                  </p>
                 </div>
 
-                <div className={`h-px w-full mb-6 ${plan.popular ? "bg-white/15" : "bg-border"}`} />
+                <div className={`h-px w-full mb-7 ${plan.popular ? "bg-white/15" : "bg-border"}`} />
 
-                <ul className="space-y-3.5 mb-8">
+                <ul className="space-y-4 mb-9">
                   {plan.features.map((f, fi) => (
                     <motion.li
                       key={fi}
