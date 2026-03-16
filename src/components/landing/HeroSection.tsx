@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import heroBg from "@/assets/hero-bg.jpg";
 import clientTrotz from "@/assets/client-trotz.png";
 import clientFt from "@/assets/client-ft.png";
 import clientTotti from "@/assets/client-totti.png";
@@ -18,124 +19,98 @@ const clientStores = [
   { src: clientPassarin, name: "Passarin Multimarcas", city: "Chapecó, SC" },
 ];
 
-const FloatingShapes = () => (
-  <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-    <motion.div
-      className="absolute -top-10 right-[5%] w-32 h-32 sm:w-44 sm:h-44 border-[4px] border-white/[0.06] rounded-full"
-      animate={{ y: [0, -35, 0], rotate: [0, 360] }}
-      transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-    />
-    <motion.div
-      className="absolute top-[40%] left-[3%] w-10 h-10 sm:w-14 sm:h-14 bg-white/[0.04] rounded-lg rotate-45"
-      animate={{ y: [0, 20, 0], rotate: [45, -45, 45] }}
-      transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-    />
-    <motion.div
-      className="absolute bottom-[25%] right-[12%] w-20 h-20 border-[2px] border-dashed border-white/[0.05] rounded-full"
-      animate={{ rotate: [0, 360] }}
-      transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-    />
-    <motion.div
-      className="absolute top-[22%] left-[10%] text-white/[0.08] text-5xl font-thin"
-      animate={{ opacity: [0.08, 0.2, 0.08], scale: [1, 1.15, 1] }}
-      transition={{ duration: 6, repeat: Infinity }}
-    >
-      +
-    </motion.div>
-    <motion.div
-      className="absolute top-[55%] right-[7%] w-3 h-3 bg-accent/40 rounded-full"
-      animate={{ scale: [1, 2, 1], opacity: [0.4, 0.8, 0.4] }}
-      transition={{ duration: 3.5, repeat: Infinity }}
-    />
-    <motion.div
-      className="absolute top-[18%] right-[35%] w-2 h-2 bg-white/20 rounded-full"
-      animate={{ scale: [1, 2.5, 1], opacity: [0.2, 0.5, 0.2] }}
-      transition={{ duration: 4.5, repeat: Infinity, delay: 1 }}
-    />
-    <motion.div
-      className="absolute bottom-[35%] left-[7%] w-0 h-0 border-l-[14px] border-r-[14px] border-b-[24px] border-l-transparent border-r-transparent border-b-white/[0.04]"
-      animate={{ y: [0, -12, 0], rotate: [0, 180, 360] }}
-      transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-    />
-  </div>
-);
+const metrics = [
+  { value: "+2.000", label: "veículos anunciados" },
+  { value: "+500", label: "leads gerados por mês" },
+  { value: "+300", label: "lojas usando a plataforma" },
+];
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
+  // Preload all images before starting carousel
   useEffect(() => {
     let loaded = 0;
     clientStores.forEach((store) => {
       const img = new Image();
       img.src = store.src;
-      img.onload = () => { loaded++; if (loaded === clientStores.length) setImagesLoaded(true); };
-      img.onerror = () => { loaded++; if (loaded === clientStores.length) setImagesLoaded(true); };
+      img.onload = () => {
+        loaded++;
+        if (loaded === clientStores.length) setImagesLoaded(true);
+      };
+      img.onerror = () => {
+        loaded++;
+        if (loaded === clientStores.length) setImagesLoaded(true);
+      };
     });
   }, []);
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % clientStores.length);
   }, []);
+
   const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev - 1 + clientStores.length) % clientStores.length);
   }, []);
 
+  const resetAutoplay = useCallback(() => {}, []);
+
   useEffect(() => {
     if (!imagesLoaded) return;
-    const interval = setInterval(nextSlide, 3500);
+    const interval = setInterval(nextSlide, 3000);
     return () => clearInterval(interval);
   }, [nextSlide, imagesLoaded]);
 
   return (
-    <section className="relative pt-32 pb-40 sm:pt-40 sm:pb-48 lg:pt-52 lg:pb-60 overflow-hidden bg-gradient-hero">
-      <FloatingShapes />
+    <section className="relative pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
+      {/* Hero background image */}
+      <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
+      <div className="absolute inset-0 bg-white/20 z-0" />
+
+      {/* Animated blobs */}
+      <div className="absolute inset-0 z-0">
+        <motion.div
+          className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-0 right-10 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.2, 1], x: [0, 30, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
 
       <div className="relative z-10 container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left */}
           <div>
             <motion.div
-              className="flex gap-3 mb-8"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="inline-flex items-center gap-2 rounded-full bg-primary/10 backdrop-blur-sm px-4 py-1.5 text-sm font-medium text-primary mb-6 border border-primary/20"
             >
-              {["F", "X", "I", "Y"].map((letter, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/10 hover:text-white hover:border-white/40 transition-all duration-300 text-xs font-bold"
-                >
-                  {letter}
-                </a>
-              ))}
+              <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+              Plataforma #1 para lojas de veículos
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-extrabold leading-[1.08] tracking-tight text-white mb-6"
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-foreground mb-4 sm:mb-6"
             >
               Venda mais carros com{" "}
-              <span className="relative inline-block">
-                automação inteligente
-                <motion.span
-                  className="absolute bottom-0 left-0 w-full h-1 bg-accent rounded-full"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ delay: 1, duration: 0.6 }}
-                  style={{ originX: 0 }}
-                />
-              </span>
+              <span className="text-gradient">automação inteligente</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.25 }}
-              className="text-base sm:text-lg text-white/60 max-w-lg mb-10 leading-relaxed"
+              transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="text-base sm:text-lg text-muted-foreground max-w-lg mb-6 sm:mb-8 leading-relaxed"
             >
               O CarPost é a plataforma completa para lojas de veículos que querem organizar estoque, criar anúncios automáticos e gerar mais leads todos os dias.
             </motion.p>
@@ -143,40 +118,32 @@ const HeroSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.7, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-                <Button
-                  size="lg"
-                  className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/30 font-bold rounded-full text-base px-8 h-13"
-                >
+              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+                <Button size="xl" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg font-bold">
                   Começar agora
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-1 h-5 w-5" />
                 </Button>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-                <Button
-                  size="lg"
-                  className="border-2 border-white/25 bg-transparent text-white hover:bg-white/10 font-semibold rounded-full text-base px-8 h-13"
-                >
-                  <Play className="mr-2 h-4 w-4 fill-current" />
+              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+                <Button size="xl" className="border-2 border-foreground/20 bg-white/60 backdrop-blur-sm text-foreground hover:bg-white/80 font-semibold">
+                  <Play className="mr-1 h-4 w-4" />
                   Testar grátis
                 </Button>
               </motion.div>
             </motion.div>
           </div>
 
-          {/* Right – Carousel */}
+          {/* Right – Client stores carousel */}
           <motion.div
-            initial={{ opacity: 0, x: 80 }}
+            initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="absolute -inset-6 bg-white/[0.03] rounded-3xl blur-2xl" />
-
-            <div className="relative rounded-2xl bg-white p-3 sm:p-4 shadow-2xl shadow-black/20">
+            <div className="rounded-2xl bg-white px-4 py-6 sm:px-[30px] sm:py-[50px] shadow-2xl shadow-primary/15 border border-border">
               <div className="rounded-xl overflow-hidden relative group aspect-[16/9]">
                 <AnimatePresence mode="sync" initial={false}>
                   <motion.img
@@ -185,49 +152,71 @@ const HeroSection = () => {
                     alt={clientStores[currentSlide].name}
                     className="absolute inset-0 w-full h-full object-cover"
                     initial={{ opacity: 0, scale: 1.02 }}
-                    animate={{ opacity: 1, scale: 1.06 }}
-                    exit={{ opacity: 0, scale: 1.08 }}
+                    animate={{ opacity: 1, scale: 1.08 }}
+                    exit={{ opacity: 0, scale: 1.1 }}
                     transition={{
-                      opacity: { duration: 1, ease: [0.4, 0, 0.2, 1] },
+                      opacity: { duration: 1.4, ease: [0.4, 0, 0.2, 1] },
                       scale: { duration: 3.5, ease: "easeOut" },
                     }}
                   />
                 </AnimatePresence>
 
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5 pt-14">
-                  <p className="text-white font-bold text-base sm:text-lg">{clientStores[currentSlide].name}</p>
-                  <p className="text-white/55 text-sm">{clientStores[currentSlide].city}</p>
+                {/* Overlay with store info */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <p className="text-white font-bold text-lg">{clientStores[currentSlide].name}</p>
+                  <p className="text-white/70 text-sm">{clientStores[currentSlide].city}</p>
                 </div>
 
-                <button onClick={prevSlide} className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/95 rounded-full p-2.5 opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg hover:scale-110">
-                  <ChevronLeft className="h-4 w-4 text-foreground" />
+                {/* Nav buttons */}
+                <button
+                  onClick={prevSlide}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg hover:scale-110"
+                >
+                  <ChevronLeft className="h-5 w-5 text-foreground" />
                 </button>
-                <button onClick={nextSlide} className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/95 rounded-full p-2.5 opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg hover:scale-110">
-                  <ChevronRight className="h-4 w-4 text-foreground" />
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg hover:scale-110"
+                >
+                  <ChevronRight className="h-5 w-5 text-foreground" />
                 </button>
               </div>
             </div>
 
-            <div className="flex justify-center gap-2.5 mt-6">
+            {/* Dots */}
+            <div className="flex justify-center gap-2 mt-4">
               {clientStores.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => setCurrentSlide(i)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    i === currentSlide ? "w-8 bg-accent" : "w-2.5 bg-white/25 hover:bg-white/40"
-                  }`}
+                  onClick={() => { setCurrentSlide(i); resetAutoplay(); }}
+                  className={`h-2 rounded-full transition-all duration-300 ${i === currentSlide ? "w-6 bg-primary" : "w-2 bg-foreground/20"}`}
                 />
               ))}
             </div>
           </motion.div>
         </div>
-      </div>
 
-      {/* Wave */}
-      <div className="wave-shape">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" fill="hsl(0, 0%, 100%)">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.11,130.83,141.14,213.2,130.16,248.75,125.67,285,113.22,321.39,56.44Z" />
-        </svg>
+        {/* Metrics */}
+        <div className="mt-12 sm:mt-20 grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto">
+          {metrics.map((m, i) => (
+            <motion.div
+              key={i}
+              className="text-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <motion.div
+                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                {m.value}
+              </motion.div>
+              <div className="text-sm text-muted-foreground mt-1">{m.label}</div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

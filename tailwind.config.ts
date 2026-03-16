@@ -14,8 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Nunito Sans", "system-ui", "sans-serif"],
-        heading: ["Poppins", "system-ui", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -100,10 +99,6 @@ export default {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
-        "float": {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-20px)" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -114,7 +109,6 @@ export default {
         "scale-in": "scale-in 0.5s ease-out forwards",
         "counter": "counter 0.4s ease-out forwards",
         "marquee": "marquee 30s linear infinite",
-        "float": "float 6s ease-in-out infinite",
       },
     },
   },

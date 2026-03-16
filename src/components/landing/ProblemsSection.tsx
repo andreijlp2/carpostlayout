@@ -2,59 +2,57 @@ import { Clock, Megaphone, Users, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/hooks/use-scroll-animation";
 
-const services = [
-  { icon: Clock, title: "Automação de Anúncios", desc: "Crie anúncios profissionais automaticamente e economize horas do seu dia com inteligência artificial." },
-  { icon: Megaphone, title: "Publicação Multi-canal", desc: "Publique em Facebook, OLX e outros portais com um único clique. Alcance máximo sem esforço." },
-  { icon: Users, title: "Gestão de Leads", desc: "Centralize todos os contatos em um painel organizado. Nunca mais perca uma oportunidade de venda." },
-  { icon: Globe, title: "Catálogo Online", desc: "Tenha um site profissional da sua loja com todos os veículos disponíveis, atualizado automaticamente." },
+const problems = [
+  { icon: Clock, title: "Perda de tempo criando anúncios", desc: "Criar anúncios manualmente para cada veículo consome horas preciosas que poderiam ser usadas para vender." },
+  { icon: Megaphone, title: "Dificuldade para divulgar veículos", desc: "Publicar em vários canais é trabalhoso e muitas lojas acabam ficando limitadas a poucos portais." },
+  { icon: Users, title: "Leads desorganizados", desc: "Sem um sistema, contatos se perdem no WhatsApp, e-mail e ligações. Oportunidades escapam todos os dias." },
+  { icon: Globe, title: "Falta de presença digital", desc: "Muitas lojas não têm site próprio e dependem apenas de marketplaces para serem encontradas." },
 ];
 
 const ProblemsSection = () => {
   return (
-    <section className="py-24 lg:py-32">
+    <section className="py-20 lg:py-28 bg-secondary/50">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-16 lg:mb-20"
+          className="text-center max-w-2xl mx-auto mb-16"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUp}
         >
-          <span className="section-subtitle text-primary">O que oferecemos</span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">
-            Nossos Serviços
+            Os maiores desafios das lojas de veículos
           </h2>
-          <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-            Soluções completas para sua loja de veículos crescer de forma inteligente.
+          <p className="text-muted-foreground text-lg">
+            Se você enfrenta algum desses problemas, o CarPost foi feito para você.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7 lg:gap-8"
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
         >
-          {services.map((p, i) => (
+          {problems.map((p, i) => (
             <motion.div
               key={i}
               variants={fadeInUp}
               custom={i}
-              whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              className="group bg-card rounded-2xl p-8 shadow-card border border-border hover:shadow-card-hover transition-all duration-500 cursor-default relative overflow-hidden text-center"
+              whileHover={{ y: -8, boxShadow: "0 20px 40px -12px rgba(0,102,255,0.12)" }}
+              transition={{ duration: 0.3 }}
+              className="bg-card rounded-2xl p-6 shadow-card border border-border cursor-default"
             >
-              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
-
-              <div className="w-[72px] h-[72px] rounded-2xl bg-primary/8 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:shadow-glow transition-all duration-500">
-                <p.icon className="h-8 w-8 text-primary group-hover:text-primary-foreground transition-colors duration-500" />
-              </div>
-              <h3 className="font-bold text-foreground mb-3 text-lg">{p.title}</h3>
+              <motion.div
+                className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center mb-4"
+                whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <p.icon className="h-6 w-6 text-accent-foreground" />
+              </motion.div>
+              <h3 className="font-bold text-foreground mb-2">{p.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
-
-              <div className="mt-5 text-primary font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-                Saiba mais →
-              </div>
             </motion.div>
           ))}
         </motion.div>

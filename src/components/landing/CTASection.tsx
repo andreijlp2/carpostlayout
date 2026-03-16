@@ -1,76 +1,65 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { fadeInUp } from "@/hooks/use-scroll-animation";
+import { scaleIn } from "@/hooks/use-scroll-animation";
 
 const CTASection = () => {
   return (
-    <section className="relative py-24 lg:py-32 bg-gradient-cta overflow-hidden">
-      <motion.div
-        className="absolute top-10 right-[10%] w-28 h-28 border-[3px] border-white/[0.05] rounded-full"
-        animate={{ y: [0, -20, 0], rotate: [0, 180, 360] }}
-        transition={{ duration: 14, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute bottom-12 left-[8%] w-16 h-16 bg-white/[0.03] rounded-lg rotate-45"
-        animate={{ rotate: [45, 180, 45] }}
-        transition={{ duration: 10, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute top-1/3 right-[22%] w-3 h-3 bg-accent/30 rounded-full"
-        animate={{ scale: [1, 2, 1], opacity: [0.3, 0.7, 0.3] }}
-        transition={{ duration: 4, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute bottom-1/3 left-[18%] text-white/[0.04] text-7xl font-thin"
-        animate={{ opacity: [0.04, 0.1, 0.04] }}
-        transition={{ duration: 5, repeat: Infinity }}
-      >
-        +
-      </motion.div>
-
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+    <section className="py-20 lg:py-28">
+      <div className="container mx-auto px-4 lg:px-8">
         <motion.div
-          className="text-center max-w-3xl mx-auto"
+          className="relative rounded-2xl sm:rounded-3xl overflow-hidden p-8 sm:p-12 lg:p-20 text-center bg-gradient-to-br from-[hsl(160,100%,45%)] via-[hsl(185,100%,45%)] to-[hsl(210,100%,50%)]"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
+          viewport={{ once: true, margin: "-50px" }}
+          variants={scaleIn}
         >
-          <span className="section-subtitle text-accent">Comece agora</span>
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-white mb-6">
-            Pronto para vender mais carros?
-          </h2>
-          <p className="text-white/55 text-base sm:text-lg max-w-xl mx-auto mb-10">
-            Comece hoje mesmo a usar o CarPost e transforme a forma como sua loja anuncia veículos. Sem taxa de adesão.
-          </p>
+          {/* Animated background blobs */}
+          <motion.div
+            className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl opacity-10"
+            animate={{ scale: [1, 1.2, 1], x: [0, 30, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl opacity-10"
+            animate={{ scale: [1, 1.3, 1], y: [0, -20, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          />
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-              <Button
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/30 font-bold rounded-full text-base px-10 h-13"
-              >
+          <div className="relative z-10">
+            <motion.h2
+              className="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-white mb-4 sm:mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              Pronto para vender mais carros?
+            </motion.h2>
+            <motion.p
+              className="text-white/80 text-base sm:text-lg max-w-xl mx-auto mb-6 sm:mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.35, duration: 0.6 }}
+            >
+              Comece hoje mesmo a usar o CarPost e transforme a forma como sua loja anuncia veículos.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <Button size="xl" className="bg-white text-[hsl(210,100%,40%)] hover:bg-white/90 shadow-lg font-bold">
                 Criar conta gratuita
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-              <Button
-                size="lg"
-                className="border-2 border-white/25 bg-transparent text-white hover:bg-white/10 font-semibold rounded-full text-base px-10 h-13"
-              >
-                Falar com vendas
+                <ArrowRight className="ml-1 h-5 w-5" />
               </Button>
             </motion.div>
           </div>
         </motion.div>
-      </div>
-
-      <div className="wave-shape">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" fill="hsl(230, 40%, 8%)">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.11,130.83,141.14,213.2,130.16,248.75,125.67,285,113.22,321.39,56.44Z" />
-        </svg>
       </div>
     </section>
   );
