@@ -11,8 +11,20 @@ const steps = [
 
 const HowItWorksSection = () => {
   return (
-    <section id="como-funciona" className="py-20 lg:py-28">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="como-funciona" className="relative py-20 lg:py-28 bg-gradient-hero overflow-hidden">
+      {/* Decorative shapes */}
+      <motion.div
+        className="absolute top-10 right-[10%] w-16 h-16 border-4 border-white/10 rounded-full"
+        animate={{ y: [0, -20, 0] }}
+        transition={{ duration: 6, repeat: Infinity }}
+      />
+      <motion.div
+        className="absolute bottom-20 left-[5%] w-10 h-10 bg-white/5 rounded-lg rotate-45"
+        animate={{ rotate: [45, 135, 45] }}
+        transition={{ duration: 8, repeat: Infinity }}
+      />
+
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <motion.div
           className="text-center max-w-2xl mx-auto mb-16"
           initial="hidden"
@@ -20,8 +32,9 @@ const HowItWorksSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUp}
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">Como funciona</h2>
-          <p className="text-muted-foreground text-lg">Em 4 passos simples, sua loja começa a vender mais.</p>
+          <span className="text-accent font-semibold text-sm uppercase tracking-wider">Passo a passo</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4 mt-3">Como funciona</h2>
+          <p className="text-white/70 text-lg">Em 4 passos simples, sua loja começa a vender mais.</p>
         </motion.div>
 
         <motion.div
@@ -32,10 +45,10 @@ const HowItWorksSection = () => {
           variants={staggerContainer}
         >
           {steps.map((s, i) => (
-            <motion.div key={i} variants={fadeInUp} custom={i} className="relative text-center">
+            <motion.div key={i} variants={fadeInUp} custom={i} className="relative text-center group">
               {i < steps.length - 1 && (
                 <motion.div
-                  className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-[2px] bg-border"
+                  className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-[2px] bg-white/15"
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
@@ -44,18 +57,25 @@ const HowItWorksSection = () => {
                 />
               )}
               <motion.div
-                className="relative z-10 w-20 h-20 rounded-2xl bg-accent flex items-center justify-center mx-auto mb-5"
-                whileHover={{ scale: 1.1, rotate: 5, backgroundColor: "hsl(210 100% 50% / 0.15)" }}
+                className="relative z-10 w-20 h-20 rounded-full bg-white/10 border-2 border-white/20 flex items-center justify-center mx-auto mb-5 group-hover:bg-accent group-hover:border-accent transition-all duration-300"
+                whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <s.icon className="h-8 w-8 text-primary" />
+                <s.icon className="h-8 w-8 text-white" />
               </motion.div>
-              <span className="text-xs font-bold text-primary uppercase tracking-wider">Passo {s.step}</span>
-              <h3 className="text-lg font-bold text-foreground mt-2 mb-2">{s.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              <span className="text-xs font-bold text-accent uppercase tracking-wider">Passo {s.step}</span>
+              <h3 className="text-lg font-bold text-white mt-2 mb-2">{s.title}</h3>
+              <p className="text-sm text-white/60 leading-relaxed">{s.desc}</p>
             </motion.div>
           ))}
         </motion.div>
+      </div>
+
+      {/* Wave shape */}
+      <div className="wave-shape">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" fill="hsl(240, 60%, 97%)">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.11,130.83,141.14,213.2,130.16,248.75,125.67,285,113.22,321.39,56.44Z"></path>
+        </svg>
       </div>
     </section>
   );

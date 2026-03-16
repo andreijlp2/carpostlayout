@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg shadow-primary/5 border-b border-border"
+          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-border"
           : "bg-transparent"
       }`}
     >
@@ -35,7 +35,15 @@ const Navbar = () => {
           {["funcionalidades", "como-funciona", "planos", "depoimentos"].map((id) => {
             const labels: Record<string, string> = { funcionalidades: "Funcionalidades", "como-funciona": "Como funciona", planos: "Planos", depoimentos: "Depoimentos" };
             return (
-              <a key={id} href={`#${id}`} className={`text-xs md:text-sm transition-colors whitespace-nowrap ${scrolled ? "text-muted-foreground hover:text-foreground" : "text-foreground/70 hover:text-foreground"}`}>
+              <a
+                key={id}
+                href={`#${id}`}
+                className={`text-xs md:text-sm font-semibold transition-colors whitespace-nowrap ${
+                  scrolled
+                    ? "text-foreground/70 hover:text-primary"
+                    : "text-white/80 hover:text-white"
+                }`}
+              >
                 {labels[id]}
               </a>
             );
@@ -43,15 +51,33 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-2 lg:gap-3">
-          <Button variant="ghost" size="sm" className={`text-xs md:text-sm ${scrolled ? "text-muted-foreground hover:text-foreground" : "text-foreground/70 hover:text-foreground"}`}>
+          <Button
+            variant="ghost"
+            size="sm"
+            className={`text-xs md:text-sm font-semibold ${
+              scrolled
+                ? "text-foreground/70 hover:text-primary"
+                : "text-white/80 hover:text-white hover:bg-white/10"
+            }`}
+          >
             Entrar
           </Button>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-md font-semibold text-xs md:text-sm px-3 lg:px-4">
+          <Button
+            size="sm"
+            className={`font-bold text-xs md:text-sm px-3 lg:px-5 rounded-full ${
+              scrolled
+                ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md"
+                : "bg-white text-primary hover:bg-white/90 shadow-md"
+            }`}
+          >
             Começar agora
           </Button>
         </div>
 
-        <button className={`md:hidden ${scrolled ? "text-foreground" : "text-foreground"}`} onClick={() => setOpen(!open)}>
+        <button
+          className={`md:hidden ${scrolled ? "text-foreground" : "text-white"}`}
+          onClick={() => setOpen(!open)}
+        >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
@@ -59,11 +85,11 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-border px-4 pb-4 animate-fade-in">
           <div className="flex flex-col gap-3 pt-2">
-            <a href="#funcionalidades" className="text-sm text-muted-foreground hover:text-foreground py-2" onClick={() => setOpen(false)}>Funcionalidades</a>
-            <a href="#como-funciona" className="text-sm text-muted-foreground hover:text-foreground py-2" onClick={() => setOpen(false)}>Como funciona</a>
-            <a href="#planos" className="text-sm text-muted-foreground hover:text-foreground py-2" onClick={() => setOpen(false)}>Planos</a>
-            <a href="#depoimentos" className="text-sm text-muted-foreground hover:text-foreground py-2" onClick={() => setOpen(false)}>Depoimentos</a>
-            <Button size="sm" className="w-full mt-2 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
+            <a href="#funcionalidades" className="text-sm font-semibold text-foreground/70 hover:text-primary py-2" onClick={() => setOpen(false)}>Funcionalidades</a>
+            <a href="#como-funciona" className="text-sm font-semibold text-foreground/70 hover:text-primary py-2" onClick={() => setOpen(false)}>Como funciona</a>
+            <a href="#planos" className="text-sm font-semibold text-foreground/70 hover:text-primary py-2" onClick={() => setOpen(false)}>Planos</a>
+            <a href="#depoimentos" className="text-sm font-semibold text-foreground/70 hover:text-primary py-2" onClick={() => setOpen(false)}>Depoimentos</a>
+            <Button size="sm" className="w-full mt-2 bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-full">
               Começar agora
             </Button>
           </div>

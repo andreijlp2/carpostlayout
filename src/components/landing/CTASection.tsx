@@ -8,22 +8,27 @@ const CTASection = () => {
     <section className="py-20 lg:py-28">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
-          className="relative rounded-2xl sm:rounded-3xl overflow-hidden p-8 sm:p-12 lg:p-20 text-center bg-gradient-to-br from-[hsl(160,100%,45%)] via-[hsl(185,100%,45%)] to-[hsl(210,100%,50%)]"
+          className="relative rounded-2xl sm:rounded-3xl overflow-hidden p-8 sm:p-12 lg:p-20 text-center bg-gradient-hero"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={scaleIn}
         >
-          {/* Animated background blobs */}
+          {/* Decorative shapes */}
           <motion.div
-            className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl opacity-10"
-            animate={{ scale: [1, 1.2, 1], x: [0, 30, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-10 right-10 w-20 h-20 border-4 border-white/10 rounded-full"
+            animate={{ y: [0, -15, 0], rotate: [0, 180, 360] }}
+            transition={{ duration: 10, repeat: Infinity }}
           />
           <motion.div
-            className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl opacity-10"
-            animate={{ scale: [1, 1.3, 1], y: [0, -20, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-10 left-10 w-12 h-12 bg-white/5 rounded-lg rotate-45"
+            animate={{ rotate: [45, 135, 45] }}
+            transition={{ duration: 6, repeat: Infinity }}
+          />
+          <motion.div
+            className="absolute top-1/2 right-[20%] w-3 h-3 bg-white/20 rounded-full"
+            animate={{ scale: [1, 2, 1], opacity: [0.2, 0.6, 0.2] }}
+            transition={{ duration: 3, repeat: Infinity }}
           />
 
           <div className="relative z-10">
@@ -37,7 +42,7 @@ const CTASection = () => {
               Pronto para vender mais carros?
             </motion.h2>
             <motion.p
-              className="text-white/80 text-base sm:text-lg max-w-xl mx-auto mb-6 sm:mb-8"
+              className="text-white/70 text-base sm:text-lg max-w-xl mx-auto mb-6 sm:mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -53,7 +58,7 @@ const CTASection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
             >
-              <Button size="xl" className="bg-white text-[hsl(210,100%,40%)] hover:bg-white/90 shadow-lg font-bold">
+              <Button size="xl" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg font-bold rounded-full">
                 Criar conta gratuita
                 <ArrowRight className="ml-1 h-5 w-5" />
               </Button>
