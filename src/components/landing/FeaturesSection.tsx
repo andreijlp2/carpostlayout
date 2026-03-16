@@ -13,7 +13,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section id="funcionalidades" className="py-20 lg:py-28 bg-secondary/50">
+    <section id="funcionalidades" className="py-20 lg:py-28 bg-secondary/60">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           className="text-center max-w-2xl mx-auto mb-16"
@@ -22,7 +22,8 @@ const FeaturesSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUp}
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider">Funcionalidades</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4 mt-3">
             Tudo que sua loja precisa em um só lugar
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -42,16 +43,13 @@ const FeaturesSection = () => {
               key={i}
               variants={fadeInUp}
               custom={i}
-              whileHover={{ y: -10, boxShadow: "0 25px 50px -12px rgba(0,102,255,0.15)" }}
-              className="group bg-card rounded-2xl p-8 shadow-card border border-border cursor-default"
+              whileHover={{ y: -10 }}
+              className="group bg-card rounded-xl p-8 shadow-card border border-border hover:shadow-card-hover hover:border-primary/30 transition-all duration-300 cursor-default relative overflow-hidden"
             >
-              <motion.div
-                className="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center mb-5 group-hover:bg-primary/10 transition-colors duration-300"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.6 }}
-              >
-                <f.icon className="h-7 w-7 text-accent-foreground group-hover:text-primary transition-colors duration-300" />
-              </motion.div>
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
+                <f.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+              </div>
               <h3 className="text-lg font-bold text-foreground mb-2">{f.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
             </motion.div>

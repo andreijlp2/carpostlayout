@@ -13,7 +13,8 @@ const VideoSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUp}
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider">Veja na prática</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4 mt-3">
             Conheça o sistema e coloque sua loja no futuro!
           </h2>
           <p className="text-muted-foreground text-lg">

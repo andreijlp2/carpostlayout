@@ -11,7 +11,7 @@ const problems = [
 
 const ProblemsSection = () => {
   return (
-    <section className="py-20 lg:py-28 bg-secondary/50">
+    <section className="py-20 lg:py-28">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           className="text-center max-w-2xl mx-auto mb-16"
@@ -20,7 +20,8 @@ const ProblemsSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUp}
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider">Desafios do mercado</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4 mt-3">
             Os maiores desafios das lojas de veículos
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -40,18 +41,16 @@ const ProblemsSection = () => {
               key={i}
               variants={fadeInUp}
               custom={i}
-              whileHover={{ y: -8, boxShadow: "0 20px 40px -12px rgba(0,102,255,0.12)" }}
+              whileHover={{ y: -10 }}
               transition={{ duration: 0.3 }}
-              className="bg-card rounded-2xl p-6 shadow-card border border-border cursor-default"
+              className="group bg-card rounded-xl p-7 shadow-card border border-border hover:shadow-card-hover hover:border-primary/30 transition-all duration-300 cursor-default relative overflow-hidden"
             >
-              <motion.div
-                className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center mb-4"
-                whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <p.icon className="h-6 w-6 text-accent-foreground" />
-              </motion.div>
-              <h3 className="font-bold text-foreground mb-2">{p.title}</h3>
+              {/* Top accent line */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                <p.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+              </div>
+              <h3 className="font-bold text-foreground mb-2 text-lg">{p.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
             </motion.div>
           ))}
