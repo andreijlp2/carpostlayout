@@ -13,13 +13,13 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section id="funcionalidades" className="py-20 lg:py-28">
+    <section id="funcionalidades" className="py-24 lg:py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-16 lg:mb-20"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "-80px" }}
           variants={fadeInUp}
         >
           <span className="section-subtitle text-primary">Funcionalidades</span>
@@ -32,10 +32,10 @@ const FeaturesSection = () => {
         </motion.div>
 
         <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 lg:gap-8"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "-80px" }}
           variants={staggerContainer}
         >
           {features.map((f, i) => (
@@ -43,14 +43,14 @@ const FeaturesSection = () => {
               key={i}
               variants={fadeInUp}
               custom={i}
-              whileHover={{ y: -10 }}
-              className="group bg-card rounded-xl p-8 shadow-card border border-border hover:shadow-card-hover hover:border-primary/20 transition-all duration-400 cursor-default relative overflow-hidden"
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="group bg-card rounded-2xl p-8 lg:p-9 shadow-card border border-border hover:shadow-card-hover hover:border-primary/20 transition-all duration-500 cursor-default relative overflow-hidden"
             >
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-              <div className="w-16 h-16 rounded-full bg-primary/8 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:shadow-glow transition-all duration-400">
-                <f.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors duration-400" />
+              <div className="w-16 h-16 rounded-2xl bg-primary/8 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:shadow-glow transition-all duration-500">
+                <f.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors duration-500" />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">{f.title}</h3>
+              <h3 className="text-lg font-bold text-foreground mb-3">{f.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
             </motion.div>
           ))}

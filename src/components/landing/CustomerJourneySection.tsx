@@ -50,10 +50,10 @@ const CustomerJourneySection = () => {
   const progress = ((current + 1) / TOTAL) * 100;
 
   return (
-    <section id="jornada" className="relative py-20 lg:py-28 overflow-hidden bg-secondary/50">
+    <section id="jornada" className="relative py-24 lg:py-32 overflow-hidden bg-secondary/40">
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-12"
+          className="text-center max-w-2xl mx-auto mb-14"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -69,8 +69,7 @@ const CustomerJourneySection = () => {
         </motion.div>
 
         <div className="relative max-w-3xl mx-auto">
-          {/* Progress bar */}
-          <div className="mb-6">
+          <div className="mb-7">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm font-bold text-primary">{current + 1} / {TOTAL}</span>
               <span className="text-xs text-muted-foreground font-semibold">
@@ -86,7 +85,6 @@ const CustomerJourneySection = () => {
             </div>
           </div>
 
-          {/* Card area */}
           <div
             className="relative overflow-hidden rounded-2xl min-h-[380px] sm:min-h-[320px]"
             onTouchStart={(e) => {
@@ -108,10 +106,10 @@ const CustomerJourneySection = () => {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className={`rounded-2xl border p-6 sm:p-8 md:p-10 shadow-card bg-card ${isResult ? "border-primary/30 shadow-card-hover" : "border-border"}`}
+                className={`rounded-2xl border p-7 sm:p-9 md:p-10 shadow-card bg-card ${isResult ? "border-primary/30 shadow-card-hover" : "border-border"}`}
               >
                 <div className="flex flex-col sm:flex-row gap-6 items-start">
-                  <div className={`shrink-0 w-14 h-14 rounded-xl flex items-center justify-center ${isResult ? "bg-gradient-to-br from-primary to-accent text-white" : "bg-primary/10"}`}>
+                  <div className={`shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center ${isResult ? "bg-gradient-to-br from-primary to-accent text-white" : "bg-primary/10"}`}>
                     <Icon className={`h-7 w-7 ${isResult ? "text-white" : "text-primary"}`} />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -142,9 +140,8 @@ const CustomerJourneySection = () => {
             </AnimatePresence>
           </div>
 
-          {/* Navigation */}
-          <div className="flex items-center justify-between mt-6">
-            <Button variant="outline" size="icon" onClick={prev} aria-label="Anterior" className="rounded-full h-10 w-10 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors">
+          <div className="flex items-center justify-between mt-7">
+            <Button variant="outline" size="icon" onClick={prev} aria-label="Anterior" className="rounded-full h-11 w-11 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors">
               <ChevronLeft className="h-5 w-5" />
             </Button>
             <div className="hidden sm:flex gap-1.5">
@@ -152,12 +149,12 @@ const CustomerJourneySection = () => {
                 <button
                   key={i}
                   onClick={() => navigate(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-6 bg-primary" : "w-2 bg-border hover:bg-primary/30"}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-7 bg-primary" : "w-2 bg-border hover:bg-primary/30"}`}
                   aria-label={`Ir para etapa ${i + 1}`}
                 />
               ))}
             </div>
-            <Button variant="outline" size="icon" onClick={next} aria-label="Próximo" className="rounded-full h-10 w-10 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors">
+            <Button variant="outline" size="icon" onClick={next} aria-label="Próximo" className="rounded-full h-11 w-11 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors">
               <ChevronRight className="h-5 w-5" />
             </Button>
           </div>

@@ -10,25 +10,29 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section id="depoimentos" className="py-20 lg:py-28">
+    <section id="depoimentos" className="py-24 lg:py-32 bg-secondary/40">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-16 lg:mb-20"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "-80px" }}
           variants={fadeInUp}
         >
           <span className="section-subtitle text-primary">Depoimentos</span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">O que nossos clientes dizem</h2>
-          <p className="text-muted-foreground text-base sm:text-lg">Lojas de todo o Brasil já estão vendendo mais com o CarPost.</p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">
+            O que nossos clientes dizem
+          </h2>
+          <p className="text-muted-foreground text-base sm:text-lg">
+            Lojas de todo o Brasil já estão vendendo mais com o CarPost.
+          </p>
         </motion.div>
 
         <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 max-w-5xl mx-auto"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 lg:gap-8 max-w-5xl mx-auto"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "-80px" }}
           variants={staggerContainer}
         >
           {testimonials.map((t, i) => (
@@ -36,19 +40,17 @@ const TestimonialsSection = () => {
               key={i}
               variants={fadeInUp}
               custom={i}
-              whileHover={{ y: -8 }}
-              className="bg-card rounded-xl p-8 relative shadow-card border border-border hover:shadow-card-hover transition-all duration-400"
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="bg-card rounded-2xl p-8 relative shadow-card border border-border hover:shadow-card-hover transition-all duration-500"
             >
-              {/* Quote icon */}
               <div className="absolute -top-4 left-8">
-                <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shadow-lg shadow-primary/25">
+                <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/25">
                   <Quote className="h-5 w-5 text-primary-foreground" />
                 </div>
               </div>
 
-              <div className="pt-4">
-                {/* Stars */}
-                <div className="flex gap-1 mb-4">
+              <div className="pt-5">
+                <div className="flex gap-1 mb-5">
                   {[...Array(5)].map((_, si) => (
                     <motion.div
                       key={si}
@@ -62,10 +64,12 @@ const TestimonialsSection = () => {
                   ))}
                 </div>
 
-                <p className="text-foreground/80 mb-6 leading-relaxed text-sm italic">"{t.text}"</p>
+                <p className="text-foreground/80 mb-7 leading-relaxed text-sm italic">
+                  "{t.text}"
+                </p>
 
-                <div className="flex items-center gap-3 pt-4 border-t border-border">
-                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-sm shadow-md">
+                <div className="flex items-center gap-3 pt-5 border-t border-border">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-sm shadow-md">
                     {t.avatar}
                   </div>
                   <div>
