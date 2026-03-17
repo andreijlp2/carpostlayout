@@ -120,7 +120,7 @@ const HeroSection = () => {
             <motion.img
               src={mascot}
               alt="Mascote CarPost"
-              className="w-20 sm:w-24 md:w-28 lg:w-32 h-auto drop-shadow-2xl relative z-10 -mr-6 sm:-mr-8"
+              className="w-20 sm:w-24 md:w-28 lg:w-32 h-auto drop-shadow-2xl relative z-30 -mr-10 sm:-mr-14"
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
@@ -134,7 +134,7 @@ const HeroSection = () => {
               <img
                 src={phoneMockup}
                 alt="Plataforma CarPost no celular"
-                className="w-52 sm:w-64 md:w-72 lg:w-80 h-auto drop-shadow-[0_25px_80px_rgba(100,60,240,0.4)]"
+                className="w-[11.5rem] sm:w-56 md:w-[15.8rem] lg:w-[17.6rem] h-auto drop-shadow-[0_25px_80px_rgba(100,60,240,0.4)]"
               />
             </motion.div>
           </motion.div>
