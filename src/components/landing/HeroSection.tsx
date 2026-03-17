@@ -118,7 +118,7 @@ const HeroSection = () => {
             <motion.img
               src={heroMockup}
               alt="Plataforma CarPost - Dashboard e App"
-              className="w-full max-w-xl lg:max-w-2xl xl:max-w-3xl h-auto drop-shadow-[0_25px_80px_rgba(100,60,240,0.3)]"
+              className="w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl h-auto drop-shadow-[0_25px_80px_rgba(100,60,240,0.3)]"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />
