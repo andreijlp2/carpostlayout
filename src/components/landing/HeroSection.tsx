@@ -67,7 +67,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-extrabold font-heading leading-[1.45] sm:leading-[1.35] text-white mb-6 drop-shadow-lg"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-extrabold font-heading leading-[1.55] sm:leading-[1.45] text-white mb-6 drop-shadow-lg"
             >
               Automatize o Marketing da sua Loja de Veículos
             </motion.h1>
@@ -118,7 +118,7 @@ const HeroSection = () => {
             <motion.img
               src={heroMockup}
               alt="Plataforma CarPost - Dashboard e App"
-              className="w-full max-w-md lg:max-w-lg xl:max-w-xl h-auto drop-shadow-[0_25px_80px_rgba(100,60,240,0.3)]"
+              className="w-full max-w-xl lg:max-w-2xl xl:max-w-3xl h-auto drop-shadow-[0_25px_80px_rgba(100,60,240,0.3)]"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />
