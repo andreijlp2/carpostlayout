@@ -134,7 +134,7 @@ const HeroSection = () => {
               <img
                 src={phoneMockup}
                 alt="Plataforma CarPost no celular"
-                className="w-52 sm:w-64 md:w-72 lg:w-80 h-auto drop-shadow-[0_25px_80px_rgba(100,60,240,0.4)]"
+                className="w-[11.5rem] sm:w-56 md:w-[15.8rem] lg:w-[17.6rem] h-auto drop-shadow-[0_25px_80px_rgba(100,60,240,0.4)]"
               />
             </motion.div>
           </motion.div>
