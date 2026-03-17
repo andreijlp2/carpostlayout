@@ -67,7 +67,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-extrabold font-heading leading-[1.55] sm:leading-[1.5] lg:leading-[1.6] text-white mb-6 drop-shadow-lg"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-extrabold font-heading leading-[1.55] sm:leading-[1.5] lg:leading-[1.5] text-white mb-6 drop-shadow-lg"
             >
               Automatize o Marketing da sua Loja de Veículos
             </motion.h1>
