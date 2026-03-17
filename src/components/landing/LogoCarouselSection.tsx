@@ -37,7 +37,7 @@ const LogoCarouselSection = () => {
           variants={fadeInUp}
         >
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">Confiança de +300 Lojas</span>
-          <h3 className="text-lg font-bold font-heading text-foreground mt-2">Nossos Clientes</h3>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-foreground mt-3 mb-4">Nossos Clientes</h2>
         </motion.div>
       </div>
 
