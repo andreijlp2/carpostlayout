@@ -10,10 +10,10 @@ const steps = [
 
 const HowItWorksSection = () => {
   return (
-    <section id="como-funciona" className="py-20 lg:py-28 bg-muted/30">
+    <section id="como-funciona" className="py-16 sm:py-20 lg:py-28 bg-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-12 sm:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -23,19 +23,19 @@ const HowItWorksSection = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-foreground mt-3 mb-4">
             Como Funciona
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-base sm:text-lg">
             Em 3 passos simples, sua loja começa a vender mais todos os dias.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto relative"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-8 max-w-4xl mx-auto relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
         >
-          {/* Connecting line */}
+          {/* Connecting line - desktop only */}
           <div className="hidden sm:block absolute top-16 left-[20%] right-[20%] h-[2px] bg-border z-0">
             <motion.div
               className="h-full bg-primary"
@@ -50,14 +50,14 @@ const HowItWorksSection = () => {
           {steps.map((s, i) => (
             <motion.div key={i} variants={fadeInUp} custom={i} className="relative text-center z-10">
               <motion.div
-                className="w-32 h-32 rounded-full bg-card border-2 border-border flex flex-col items-center justify-center mx-auto mb-6 shadow-card group hover:border-primary hover:shadow-card-hover transition-all duration-500"
+                className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full bg-card border-2 border-border flex flex-col items-center justify-center mx-auto mb-5 sm:mb-6 shadow-card group hover:border-primary hover:shadow-card-hover transition-all duration-500"
                 whileHover={{ scale: 1.08 }}
               >
-                <s.icon className="h-10 w-10 text-primary mb-1" />
+                <s.icon className="h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10 text-primary mb-1" />
                 <span className="text-xs font-bold text-primary">{s.step}</span>
               </motion.div>
-              <h3 className="text-lg font-bold font-heading text-foreground mb-2">{s.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">{s.desc}</p>
+              <h3 className="text-base sm:text-lg font-bold font-heading text-foreground mb-2">{s.title}</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">{s.desc}</p>
             </motion.div>
           ))}
         </motion.div>
