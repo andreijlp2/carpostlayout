@@ -41,10 +41,10 @@ const TestimonialsSection = () => {
   }, [next]);
 
   return (
-    <section id="depoimentos" className="py-20 lg:py-28">
+    <section id="depoimentos" className="py-16 sm:py-20 lg:py-28">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-12 sm:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -54,7 +54,7 @@ const TestimonialsSection = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-foreground mt-3 mb-4">
             O que Nossos Clientes Dizem
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-base sm:text-lg">
             Lojas de todo o Brasil já estão vendendo mais com o CarPost.
           </p>
         </motion.div>
@@ -67,11 +67,11 @@ const TestimonialsSection = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="bg-card rounded-2xl p-8 sm:p-12 border border-border shadow-card text-center"
+              className="bg-card rounded-2xl p-6 sm:p-8 lg:p-12 border border-border shadow-card text-center"
             >
-              <Quote className="w-10 h-10 text-primary/20 mx-auto mb-6" />
+              <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-primary/20 mx-auto mb-4 sm:mb-6" />
               
-              <p className="text-foreground text-lg leading-relaxed mb-8">
+              <p className="text-foreground text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
                 "{testimonials[current].text}"
               </p>
 
@@ -81,22 +81,20 @@ const TestimonialsSection = () => {
                 ))}
               </div>
 
-              {/* Avatar */}
-              <div className="w-16 h-16 rounded-full bg-hero-gradient flex items-center justify-center mx-auto mb-3 text-white font-bold text-lg font-heading">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-hero-gradient flex items-center justify-center mx-auto mb-3 text-white font-bold text-sm sm:text-lg font-heading">
                 {testimonials[current].avatar}
               </div>
-              <div className="font-bold font-heading text-foreground">{testimonials[current].name}</div>
-              <div className="text-sm text-muted-foreground">{testimonials[current].role}</div>
+              <div className="font-bold font-heading text-foreground text-sm sm:text-base">{testimonials[current].name}</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">{testimonials[current].role}</div>
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-8">
+          <div className="flex items-center justify-center gap-4 mt-6 sm:mt-8">
             <button
               onClick={prev}
-              className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted hover:border-primary transition-colors"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted hover:border-primary transition-colors"
             >
-              <ChevronLeft className="h-5 w-5 text-foreground" />
+              <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 text-foreground" />
             </button>
 
             <div className="flex gap-2">
@@ -113,9 +111,9 @@ const TestimonialsSection = () => {
 
             <button
               onClick={next}
-              className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted hover:border-primary transition-colors"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted hover:border-primary transition-colors"
             >
-              <ChevronRight className="h-5 w-5 text-foreground" />
+              <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 text-foreground" />
             </button>
           </div>
         </div>

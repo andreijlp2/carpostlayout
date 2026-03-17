@@ -20,10 +20,10 @@ const plans = [
 
 const PricingSection = () => {
   return (
-    <section id="planos" className="py-20 lg:py-28 bg-muted/30">
+    <section id="planos" className="py-16 sm:py-20 lg:py-28 bg-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-12 sm:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -33,11 +33,11 @@ const PricingSection = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-foreground mt-3 mb-4">
             Escolha o Plano Ideal
           </h2>
-          <p className="text-muted-foreground text-lg">Planos flexíveis que acompanham o crescimento da sua loja.</p>
+          <p className="text-muted-foreground text-base sm:text-lg">Planos flexíveis que acompanham o crescimento da sua loja.</p>
         </motion.div>
 
         <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -49,11 +49,11 @@ const PricingSection = () => {
               variants={fadeInUp}
               custom={i}
               whileHover={{ y: -10 }}
-              className={`relative rounded-2xl p-8 border transition-all duration-500 ${
+              className={`relative rounded-2xl p-6 sm:p-8 border transition-all duration-500 ${
                 plan.popular
-                  ? "bg-hero-gradient text-white border-transparent shadow-hero scale-[1.02] lg:scale-105"
+                  ? "bg-hero-gradient text-white border-transparent shadow-hero sm:scale-[1.02] lg:scale-105"
                   : "bg-card border-border shadow-card hover:shadow-card-hover"
-              }`}
+              } ${i === 1 ? "sm:col-span-2 lg:col-span-1" : ""}`}
             >
               {plan.popular && (
                 <motion.div
@@ -66,12 +66,12 @@ const PricingSection = () => {
                 </motion.div>
               )}
 
-              <div className="text-center mb-8">
+              <div className="text-center mb-6 sm:mb-8">
                 <h3 className={`text-lg font-bold font-heading mb-4 ${plan.popular ? "text-white" : "text-foreground"}`}>
                   {plan.name}
                 </h3>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className={`text-4xl font-extrabold font-heading ${plan.popular ? "text-white" : "text-foreground"}`}>
+                  <span className={`text-3xl sm:text-4xl font-extrabold font-heading ${plan.popular ? "text-white" : "text-foreground"}`}>
                     {plan.price}
                   </span>
                   <span className={`text-sm ${plan.popular ? "text-white/70" : "text-muted-foreground"}`}>
@@ -80,7 +80,7 @@ const PricingSection = () => {
                 </div>
               </div>
 
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-6 sm:mb-8">
                 {plan.features.map((f, fi) => (
                   <li key={fi} className={`flex items-center gap-3 text-sm ${plan.popular ? "text-white/90" : "text-foreground"}`}>
                     <Check className={`h-4 w-4 flex-shrink-0 ${plan.popular ? "text-white" : "text-primary"}`} />

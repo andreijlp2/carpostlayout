@@ -38,7 +38,7 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
   }, [target]);
 
   return (
-    <div ref={ref} className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white">
+    <div ref={ref} className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold font-heading text-white">
       {count.toLocaleString("pt-BR")}{suffix}
     </div>
   );
@@ -46,16 +46,16 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
 
 const MetricsSection = () => {
   return (
-    <section className="py-20 lg:py-28 bg-counter-gradient relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-28 bg-counter-gradient relative overflow-hidden">
       {/* Decorative */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute top-10 left-10 w-40 h-40 border border-white/5 rounded-full"
+          className="absolute top-10 left-10 w-28 sm:w-40 h-28 sm:h-40 border border-white/5 rounded-full"
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-10 right-10 w-56 h-56 border border-white/5 rounded-full"
+          className="absolute bottom-10 right-10 w-36 sm:w-56 h-36 sm:h-56 border border-white/5 rounded-full"
           animate={{ scale: [1, 1.15, 1] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -65,7 +65,7 @@ const MetricsSection = () => {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <motion.div
-          className="text-center mb-14"
+          className="text-center mb-10 sm:mb-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -77,7 +77,7 @@ const MetricsSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-6">
           {counters.map((c, i) => (
             <motion.div
               key={i}
@@ -88,16 +88,15 @@ const MetricsSection = () => {
               transition={{ delay: i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
               <motion.div
-                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/20 group-hover:border-primary/30 transition-all duration-500"
+                className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-3 sm:mb-5 group-hover:bg-primary/20 group-hover:border-primary/30 transition-all duration-500"
                 whileHover={{ scale: 1.1, rotate: 5 }}
               >
-                <c.icon className="h-7 w-7 sm:h-8 sm:w-8 text-primary" />
+                <c.icon className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-primary" />
               </motion.div>
               <AnimatedCounter target={c.value} suffix={c.suffix} />
-              <div className="text-white/50 text-sm sm:text-base mt-2 font-medium">{c.label}</div>
-              {/* Divider line */}
+              <div className="text-white/50 text-xs sm:text-sm lg:text-base mt-1 sm:mt-2 font-medium">{c.label}</div>
               <motion.div
-                className="w-12 h-0.5 bg-primary/30 mx-auto mt-4 rounded-full"
+                className="w-10 sm:w-12 h-0.5 bg-primary/30 mx-auto mt-3 sm:mt-4 rounded-full"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
