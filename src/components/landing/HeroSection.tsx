@@ -111,12 +111,12 @@ const HeroSection = () => {
 
           {/* Right - Phone mockup + mascot */}
           <motion.div
-            initial={{ opacity: 0, x: 80, scale: 0.9 }}
+            initial={{ opacity: 0, x: 60, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex items-end justify-center lg:justify-end mt-8 lg:mt-0"
+            className="relative flex items-end justify-center lg:justify-start mt-4 lg:mt-0 lg:-ml-4"
           >
-            {/* Mascot - smaller */}
+            {/* Mascot */}
             <motion.img
               src={mascot}
               alt="Mascote CarPost"
@@ -125,7 +125,7 @@ const HeroSection = () => {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
 
-            {/* Phone mockup - larger */}
+            {/* Phone mockup - 15% smaller */}
             <motion.div
               className="relative z-20"
               animate={{ y: [0, -12, 0] }}
@@ -134,7 +134,7 @@ const HeroSection = () => {
               <img
                 src={phoneMockup}
                 alt="Plataforma CarPost no celular"
-                className="w-[11.5rem] sm:w-56 md:w-[15.8rem] lg:w-[17.6rem] h-auto drop-shadow-[0_25px_80px_rgba(100,60,240,0.4)]"
+                className="w-[9.8rem] sm:w-48 md:w-[13.4rem] lg:w-[15rem] h-auto drop-shadow-[0_25px_80px_rgba(100,60,240,0.4)]"
               />
             </motion.div>
           </motion.div>
