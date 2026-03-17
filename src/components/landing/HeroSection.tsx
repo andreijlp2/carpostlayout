@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import heroBottomShape from "@/assets/hero-bottom-shape.png";
 import { motion } from "framer-motion";
-import heroMockup from "@/assets/hero-mockup.webp";
+import heroMockup from "@/assets/hero-mockup.png";
 
 const HeroSection = () => {
   return (
