@@ -1,222 +1,134 @@
-import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, ChevronLeft, ChevronRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import heroBg from "@/assets/hero-bg.jpg";
-import clientTrotz from "@/assets/client-trotz.png";
-import clientFt from "@/assets/client-ft.png";
-import clientTotti from "@/assets/client-totti.png";
-import clientDs7 from "@/assets/client-ds7.png";
-import clientPremier from "@/assets/client-premier.png";
-import clientPassarin from "@/assets/client-passarin.png";
-
-const clientStores = [
-  { src: clientTrotz, name: "Trotz Veículos", city: "Xanxerê, SC" },
-  { src: clientFt, name: "FT Multimarcas", city: "SC" },
-  { src: clientTotti, name: "Auto Totti", city: "Chapecó, SC" },
-  { src: clientDs7, name: "DS7 Cars", city: "Chapecó, SC" },
-  { src: clientPremier, name: "Premier Motors", city: "Chapecó, SC" },
-  { src: clientPassarin, name: "Passarin Multimarcas", city: "Chapecó, SC" },
-];
-
-const metrics = [
-  { value: "+2.000", label: "veículos anunciados" },
-  { value: "+500", label: "leads gerados por mês" },
-  { value: "+300", label: "lojas usando a plataforma" },
-];
+import { ArrowRight, Play } from "lucide-react";
+import { motion } from "framer-motion";
+import heroIllustration from "@/assets/hero-illustration.png";
 
 const HeroSection = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-
-  // Preload all images before starting carousel
-  useEffect(() => {
-    let loaded = 0;
-    clientStores.forEach((store) => {
-      const img = new Image();
-      img.src = store.src;
-      img.onload = () => {
-        loaded++;
-        if (loaded === clientStores.length) setImagesLoaded(true);
-      };
-      img.onerror = () => {
-        loaded++;
-        if (loaded === clientStores.length) setImagesLoaded(true);
-      };
-    });
-  }, []);
-
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % clientStores.length);
-  }, []);
-
-  const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + clientStores.length) % clientStores.length);
-  }, []);
-
-  const resetAutoplay = useCallback(() => {}, []);
-
-  useEffect(() => {
-    if (!imagesLoaded) return;
-    const interval = setInterval(nextSlide, 3000);
-    return () => clearInterval(interval);
-  }, [nextSlide, imagesLoaded]);
-
   return (
-    <section className="relative pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
-      {/* Hero background image */}
-      <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
-      <div className="absolute inset-0 bg-white/20 z-0" />
-
-      {/* Animated blobs */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative bg-hero-gradient pt-28 pb-32 sm:pt-36 sm:pb-40 lg:pt-44 lg:pb-52 overflow-hidden">
+      {/* Floating shapes */}
+      <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.6, 0.3] }}
+          className="absolute top-20 left-[10%] w-20 h-20 border-2 border-white/10 rounded-full"
+          animate={{ y: [0, -20, 0], rotate: [0, 360] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-40 right-[15%] w-12 h-12 bg-white/5 rounded-lg"
+          animate={{ y: [0, 15, 0], rotate: [0, -180, -360] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-32 left-[20%] w-8 h-8 bg-white/5 rounded-full"
+          animate={{ y: [0, -25, 0], x: [0, 10, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-0 right-10 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.2, 1], x: [0, 30, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/3 right-[5%] w-16 h-16 border border-white/10 rounded-lg rotate-45"
+          animate={{ rotate: [45, 90, 45], scale: [1, 1.1, 1] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
+        {/* Big blurred circle */}
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          {/* Left content */}
           <div>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 rounded-full bg-primary/10 backdrop-blur-sm px-4 py-1.5 text-sm font-medium text-primary mb-6 border border-primary/20"
+              transition={{ duration: 0.6 }}
+              className="flex items-center gap-2 mb-6"
             >
-              <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-              Plataforma #1 para lojas de veículos
+              <div className="flex gap-3">
+                {["#", "#", "#", "#"].map((_, i) => (
+                  <a
+                    key={i}
+                    href="#"
+                    className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/10 hover:text-white transition-colors"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      {i === 0 && <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />}
+                      {i === 1 && <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />}
+                      {i === 2 && <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />}
+                      {i === 3 && <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />}
+                    </svg>
+                  </a>
+                ))}
+              </div>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-foreground mb-4 sm:mb-6"
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold font-heading leading-tight text-white mb-6"
             >
-              Venda mais carros com{" "}
-              <span className="text-gradient">automação inteligente</span>
+              Automatize o Marketing da sua Loja de Veículos
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base sm:text-lg text-muted-foreground max-w-lg mb-6 sm:mb-8 leading-relaxed"
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="text-base sm:text-lg text-white/70 max-w-lg mb-8 leading-relaxed"
             >
-              O CarPost é a plataforma completa para lojas de veículos que querem organizar estoque, criar anúncios automáticos e gerar mais leads todos os dias.
+              Uma plataforma completa para criar anúncios, gerar legendas e publicar automaticamente nas redes sociais. Tudo que sua loja precisa para vender mais.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.7, delay: 0.45 }}
               className="flex flex-col sm:flex-row gap-4"
             >
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-                <Button size="xl" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg font-bold">
-                  Começar agora
+                <Button
+                  size="xl"
+                  className="bg-cta text-cta-foreground hover:bg-cta/90 shadow-lg font-bold rounded-full px-8"
+                >
+                  Começar Agora
                   <ArrowRight className="ml-1 h-5 w-5" />
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-                <Button size="xl" className="border-2 border-foreground/20 bg-white/60 backdrop-blur-sm text-foreground hover:bg-white/80 font-semibold">
+                <Button
+                  size="xl"
+                  className="border-2 border-white/30 bg-transparent text-white hover:bg-white/10 font-semibold rounded-full px-8"
+                >
                   <Play className="mr-1 h-4 w-4" />
-                  Testar grátis
+                  Ver Demonstração
                 </Button>
               </motion.div>
             </motion.div>
           </div>
 
-          {/* Right – Client stores carousel */}
+          {/* Right illustration */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
+            transition={{ duration: 0.9, delay: 0.3 }}
+            className="relative flex justify-center"
           >
-            <div className="rounded-2xl bg-white px-4 py-6 sm:px-[30px] sm:py-[50px] shadow-2xl shadow-primary/15 border border-border">
-              <div className="rounded-xl overflow-hidden relative group aspect-[16/9]">
-                <AnimatePresence mode="sync" initial={false}>
-                  <motion.img
-                    key={currentSlide}
-                    src={clientStores[currentSlide].src}
-                    alt={clientStores[currentSlide].name}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    initial={{ opacity: 0, scale: 1.02 }}
-                    animate={{ opacity: 1, scale: 1.08 }}
-                    exit={{ opacity: 0, scale: 1.1 }}
-                    transition={{
-                      opacity: { duration: 1.4, ease: [0.4, 0, 0.2, 1] },
-                      scale: { duration: 3.5, ease: "easeOut" },
-                    }}
-                  />
-                </AnimatePresence>
-
-                {/* Overlay with store info */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <p className="text-white font-bold text-lg">{clientStores[currentSlide].name}</p>
-                  <p className="text-white/70 text-sm">{clientStores[currentSlide].city}</p>
-                </div>
-
-                {/* Nav buttons */}
-                <button
-                  onClick={prevSlide}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg hover:scale-110"
-                >
-                  <ChevronLeft className="h-5 w-5 text-foreground" />
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg hover:scale-110"
-                >
-                  <ChevronRight className="h-5 w-5 text-foreground" />
-                </button>
-              </div>
-            </div>
-
-            {/* Dots */}
-            <div className="flex justify-center gap-2 mt-4">
-              {clientStores.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => { setCurrentSlide(i); resetAutoplay(); }}
-                  className={`h-2 rounded-full transition-all duration-300 ${i === currentSlide ? "w-6 bg-primary" : "w-2 bg-foreground/20"}`}
-                />
-              ))}
-            </div>
+            <motion.img
+              src={heroIllustration}
+              alt="Plataforma CarPost"
+              className="w-full max-w-lg lg:max-w-xl drop-shadow-2xl"
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            />
           </motion.div>
         </div>
+      </div>
 
-        {/* Metrics */}
-        <div className="mt-12 sm:mt-20 grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto">
-          {metrics.map((m, i) => (
-            <motion.div
-              key={i}
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <motion.div
-                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                {m.value}
-              </motion.div>
-              <div className="text-sm text-muted-foreground mt-1">{m.label}</div>
-            </motion.div>
-          ))}
-        </div>
+      {/* Wave bottom */}
+      <div className="hero-wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" fill="hsl(var(--background))">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C57.17,84.42,127.14,72.39,321.39,56.44Z" />
+        </svg>
       </div>
     </section>
   );
