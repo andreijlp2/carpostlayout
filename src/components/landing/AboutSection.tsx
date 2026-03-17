@@ -39,6 +39,7 @@ const AboutSection = () => {
               <img
                 src={dashboardMockup}
                 alt="Dashboard CarPost"
+                loading="lazy"
                 className="w-full h-auto rounded-2xl"
               />
               {/* Overlay shine */}

@@ -51,7 +51,7 @@ const LogoCarouselSection = () => {
               key={i}
               className="flex-shrink-0 mx-6 sm:mx-8 flex items-center justify-center w-36 h-12 px-2 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-default"
             >
-              <img src={logo.src} alt={logo.name} className="max-h-full max-w-full object-contain" />
+              <img src={logo.src} alt={logo.name} loading="lazy" className="max-h-full max-w-full object-contain" />
             </div>
           ))}
         </div>
