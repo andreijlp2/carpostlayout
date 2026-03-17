@@ -2,8 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import heroBottomShape from "@/assets/hero-bottom-shape.png";
 import { motion } from "framer-motion";
-import phoneMockup from "@/assets/phone-mockup.png";
-import mascot from "@/assets/mascot.png";
+import heroMockup from "@/assets/hero-mockup.png";
 
 const HeroSection = () => {
   return (
@@ -35,7 +34,7 @@ const HeroSection = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 lg:px-8 pb-32 sm:pb-40 lg:pb-52">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-8 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           {/* Left content */}
           <div>
             <motion.div
@@ -68,7 +67,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-extrabold font-heading leading-[1.3] sm:leading-[1.2] text-white mb-6 drop-shadow-lg"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-extrabold font-heading leading-[1.45] sm:leading-[1.35] text-white mb-6 drop-shadow-lg"
             >
               Automatize o Marketing da sua Loja de Veículos
             </motion.h1>
@@ -109,34 +108,20 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Right - Phone mockup + mascot */}
+          {/* Right - Mockup */}
           <motion.div
             initial={{ opacity: 0, x: 60, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex items-end justify-center lg:justify-start mt-4 lg:mt-0 lg:-ml-4"
+            className="flex items-center justify-center"
           >
-            {/* Mascot */}
             <motion.img
-              src={mascot}
-              alt="Mascote CarPost"
-              className="w-20 sm:w-24 md:w-28 lg:w-32 h-auto drop-shadow-2xl relative z-30 -mr-10 sm:-mr-14"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-
-            {/* Phone mockup - 15% smaller */}
-            <motion.div
-              className="relative z-20"
-              animate={{ y: [0, -12, 0] }}
+              src={heroMockup}
+              alt="Plataforma CarPost - Dashboard e App"
+              className="w-full max-w-md lg:max-w-lg xl:max-w-xl h-auto drop-shadow-[0_25px_80px_rgba(100,60,240,0.3)]"
+              animate={{ y: [0, -10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <img
-                src={phoneMockup}
-                alt="Plataforma CarPost no celular"
-                className="w-[9.8rem] sm:w-48 md:w-[13.4rem] lg:w-[15rem] h-auto drop-shadow-[0_25px_80px_rgba(100,60,240,0.4)]"
-              />
-            </motion.div>
+            />
           </motion.div>
         </div>
       </div>
