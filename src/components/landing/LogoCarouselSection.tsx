@@ -27,7 +27,7 @@ const LogoCarouselSection = () => {
   const doubledLogos = [...logos, ...logos];
 
   return (
-    <section className="py-14 lg:py-20 bg-muted/40">
+    <section className="py-14 lg:py-20">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           className="text-center mb-10"
@@ -42,8 +42,8 @@ const LogoCarouselSection = () => {
       </div>
 
       <div className="relative overflow-hidden group">
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-muted/40 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-muted/40 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
         <div className="marquee-track w-max items-center">
           {doubledLogos.map((logo, i) => (
