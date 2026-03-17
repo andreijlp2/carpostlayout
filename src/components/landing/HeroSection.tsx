@@ -120,7 +120,7 @@ const HeroSection = () => {
             <motion.img
               src={mascot}
               alt="Mascote CarPost"
-              className="w-20 sm:w-24 md:w-28 lg:w-32 h-auto drop-shadow-2xl relative z-10 -mr-6 sm:-mr-8"
+              className="w-20 sm:w-24 md:w-28 lg:w-32 h-auto drop-shadow-2xl relative z-30 -mr-10 sm:-mr-14"
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
