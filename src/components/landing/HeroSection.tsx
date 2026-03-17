@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import heroBottomShape from "@/assets/hero-bottom-shape.png";
 import { motion } from "framer-motion";
-import dashboardMockup from "@/assets/dashboard-mockup.png";
+import phoneMockup from "@/assets/phone-mockup.png";
 import mascot from "@/assets/mascot.png";
 
 const HeroSection = () => {
@@ -114,45 +114,28 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 80, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex items-end justify-center lg:justify-end gap-0 mt-8 lg:mt-0"
+            className="relative flex items-end justify-center lg:justify-end mt-8 lg:mt-0"
           >
-            {/* Mascot */}
+            {/* Mascot - smaller */}
             <motion.img
               src={mascot}
               alt="Mascote CarPost"
-              className="w-28 sm:w-36 md:w-44 lg:w-52 h-auto drop-shadow-2xl relative z-10 -mr-4 sm:-mr-6"
+              className="w-20 sm:w-24 md:w-28 lg:w-32 h-auto drop-shadow-2xl relative z-10 -mr-6 sm:-mr-8"
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
 
-            {/* Phone mockup */}
+            {/* Phone mockup - larger */}
             <motion.div
               className="relative z-20"
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="relative w-44 sm:w-52 md:w-60 lg:w-72">
-                {/* Phone frame */}
-                <div className="relative bg-foreground rounded-[2rem] sm:rounded-[2.5rem] p-2 sm:p-2.5 shadow-[0_25px_80px_-12px_rgba(0,0,0,0.5)]">
-                  {/* Notch */}
-                  <div className="absolute top-2 sm:top-3 left-1/2 -translate-x-1/2 w-20 sm:w-24 h-5 sm:h-6 bg-foreground rounded-b-2xl z-30" />
-                  {/* Screen */}
-                  <div className="relative rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden bg-background">
-                    <img
-                      src={dashboardMockup}
-                      alt="Plataforma CarPost"
-                      className="w-full h-auto block"
-                    />
-                    {/* Screen shine */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -skew-x-12"
-                      initial={{ x: "-150%" }}
-                      animate={{ x: "150%" }}
-                      transition={{ duration: 3, repeat: Infinity, repeatDelay: 4, ease: "easeInOut" }}
-                    />
-                  </div>
-                </div>
-              </div>
+              <img
+                src={phoneMockup}
+                alt="Plataforma CarPost no celular"
+                className="w-52 sm:w-64 md:w-72 lg:w-80 h-auto drop-shadow-[0_25px_80px_rgba(100,60,240,0.4)]"
+              />
             </motion.div>
           </motion.div>
         </div>
