@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import heroBottomShape from "@/assets/hero-bottom-shape.png";
 import { motion } from "framer-motion";
-import dashboardMockup from "@/assets/dashboard-mockup.png";
+import phoneMockup from "@/assets/phone-mockup.png";
 import mascot from "@/assets/mascot.png";
 
 const HeroSection = () => {
