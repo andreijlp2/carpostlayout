@@ -13,8 +13,9 @@ const VideoSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUp}
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">
-            Conheça o sistema e coloque sua loja no futuro!
+          <span className="text-sm font-semibold text-primary uppercase tracking-widest">Veja em Ação</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-foreground mt-3 mb-4">
+            Conheça o Sistema
           </h2>
           <p className="text-muted-foreground text-lg">
             Veja como o CarPost pode transformar a gestão da sua loja de veículos.
