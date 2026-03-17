@@ -1,13 +1,9 @@
 import Navbar from "@/components/landing/Navbar";
 import HeroSection from "@/components/landing/HeroSection";
-import LogoCarouselSection from "@/components/landing/LogoCarouselSection";
-import ProblemsSection from "@/components/landing/ProblemsSection";
-import CustomerJourneySection from "@/components/landing/CustomerJourneySection";
-import SolutionSection from "@/components/landing/SolutionSection";
-import VideoSection from "@/components/landing/VideoSection";
-import FeaturesSection from "@/components/landing/FeaturesSection";
+import ServicesSection from "@/components/landing/ServicesSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
-import DifferentialsSection from "@/components/landing/DifferentialsSection";
+import FeaturesSection from "@/components/landing/FeaturesSection";
+import MetricsSection from "@/components/landing/MetricsSection";
 import PricingSection from "@/components/landing/PricingSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import CTASection from "@/components/landing/CTASection";
@@ -18,14 +14,10 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <LogoCarouselSection />
-      <ProblemsSection />
-      <CustomerJourneySection />
-      <SolutionSection />
-      <VideoSection />
-      <FeaturesSection />
+      <ServicesSection />
       <HowItWorksSection />
-      <DifferentialsSection />
+      <FeaturesSection />
+      <MetricsSection />
       <PricingSection />
       <TestimonialsSection />
       <CTASection />
