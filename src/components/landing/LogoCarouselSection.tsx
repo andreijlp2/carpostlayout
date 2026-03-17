@@ -27,7 +27,7 @@ const LogoCarouselSection = () => {
   const doubledLogos = [...logos, ...logos];
 
   return (
-    <section className="py-14 lg:py-20 bg-muted/40">
+    <section className="py-14 lg:py-20">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           className="text-center mb-10"
