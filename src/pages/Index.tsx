@@ -10,6 +10,7 @@ import PricingSection from "@/components/landing/PricingSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import VideoSection from "@/components/landing/VideoSection";
 import CTASection from "@/components/landing/CTASection";
+import FAQSection from "@/components/landing/FAQSection";
 import Footer from "@/components/landing/Footer";
 
 const Index = () => {
@@ -27,6 +28,7 @@ const Index = () => {
       <PricingSection />
       <TestimonialsSection />
       <CTASection />
+      <FAQSection />
       <Footer />
     </div>
   );
