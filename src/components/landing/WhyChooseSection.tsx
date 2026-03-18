@@ -73,18 +73,8 @@ const WhyChooseSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80">
-              <div className="absolute inset-0 bg-primary/10 rounded-full" />
-              <div className="absolute inset-4 bg-primary/5 rounded-full" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div
-                  className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 bg-hero-gradient rounded-full flex items-center justify-center shadow-hero"
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <Check className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
-                </motion.div>
-              </div>
+            <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 flex items-center justify-center">
+              <img src={mascotThumbsup} alt="Mascote CarPost" className="w-full h-full object-contain drop-shadow-2xl" />
             </div>
           </motion.div>
 
