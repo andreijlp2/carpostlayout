@@ -6,33 +6,6 @@ import { Mail, Phone, MapPin } from "lucide-react";
 const Footer = () => {
   return (
     <footer className="bg-counter-gradient pt-12 sm:pt-16 lg:pt-20 pb-8">
-      {/* Newsletter */}
-      <div className="container mx-auto px-4 lg:px-8 mb-12 sm:mb-16">
-        <motion.div
-          className="bg-primary/20 rounded-2xl p-6 sm:p-8 lg:p-12 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-        >
-          <div className="text-center sm:text-left">
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold font-heading text-white mb-2">
-              Cadastre-se na Nossa Newsletter
-            </h3>
-            <p className="text-white/60 text-xs sm:text-sm">Receba novidades e dicas sobre marketing automotivo.</p>
-          </div>
-          <div className="flex w-full sm:w-auto gap-2">
-            <input
-              type="email"
-              placeholder="Seu e-mail"
-              className="flex-1 sm:w-48 lg:w-64 px-4 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-primary"
-            />
-            <button className="bg-cta text-cta-foreground px-4 sm:px-6 py-3 rounded-full font-semibold text-sm hover:bg-cta/90 transition-colors whitespace-nowrap">
-              Assinar
-            </button>
-          </div>
-        </motion.div>
-      </div>
 
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
