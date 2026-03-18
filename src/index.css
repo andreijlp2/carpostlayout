@@ -48,7 +48,7 @@
     --hero-start: 250 85% 50%;
     --hero-mid: 230 90% 48%;
     --hero-end: 210 100% 50%;
-    --cta-orange: 20 100% 55%;
+    --cta-orange: 248 100% 33%;
     --cta-orange-foreground: 0 0% 100%;
   }
 
@@ -133,7 +133,7 @@
   }
 
   .shadow-cta {
-    box-shadow: 0 8px 25px -4px rgba(240, 100, 20, 0.4);
+    box-shadow: 0 8px 25px -4px rgba(29, 0, 169, 0.4);
   }
 
   .marquee-track {
