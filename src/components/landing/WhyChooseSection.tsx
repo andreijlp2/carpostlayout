@@ -73,7 +73,7 @@ const WhyChooseSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 flex items-center justify-center">
+            <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 flex items-center justify-center">
               <img src={mascotThumbsup} alt="Mascote CarPost" className="w-full h-full object-contain drop-shadow-2xl" />
             </div>
           </motion.div>
