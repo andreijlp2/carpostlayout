@@ -52,13 +52,17 @@ const Footer = () => {
               A plataforma completa para lojas de veículos que querem automatizar marketing e vender mais todos os dias.
             </p>
             <div className="flex gap-3">
-              {["FB", "IG", "YT", "LI"].map((s) => (
+              {[
+                { label: "FB", hoverClass: "hover:bg-[#1877F2] hover:border-[#1877F2]" },
+                { label: "IG", hoverClass: "hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#e6683c] hover:to-[#dc2743] hover:border-transparent" },
+                { label: "YT", hoverClass: "hover:bg-[#FF0000] hover:border-[#FF0000]" },
+              ].map((s) => (
                 <a
-                  key={s}
+                  key={s.label}
                   href="#"
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:bg-primary hover:border-primary hover:text-white transition-all duration-300 text-xs font-bold"
+                  className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:text-white transition-all duration-300 text-xs font-bold ${s.hoverClass}`}
                 >
-                  {s}
+                  {s.label}
                 </a>
               ))}
             </div>
