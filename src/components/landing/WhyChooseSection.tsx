@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeInUp, fadeInLeft, fadeInRight } from "@/hooks/use-scroll-animation";
-import { Check, Shield, Zap, Globe, BarChart, Lock, HeadphonesIcon } from "lucide-react";
+import { Shield, Zap, Globe, BarChart, Lock, HeadphonesIcon } from "lucide-react";
+import mascotThumbsup from "@/assets/mascot-thumbsup.png";
 
 const leftFeatures = [
   { icon: Shield, text: "Proteção total dos seus dados" },
