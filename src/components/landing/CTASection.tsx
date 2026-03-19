@@ -73,7 +73,7 @@ const CTASection = () => {
               transition={{ delay: 0.5, duration: 0.7 }}
             >
               <motion.div whileHover={{ scale: 1.07, y: -3 }} whileTap={{ scale: 0.97 }}>
-                <Button size="xl" className="bg-[#8fc9ba] text-white hover:bg-[#149284] shadow-cta font-bold rounded-full px-10">
+                <Button size="xl" className="bg-[#f37020] text-white hover:bg-[#f78f1e] shadow-cta font-bold rounded-full px-10 uppercase">
                   TESTE POR 7 DIAS
                   <ArrowRight className="ml-1 h-5 w-5" />
                 </Button>
