@@ -80,6 +80,8 @@ const HeroSection = () => {
               className="text-sm sm:text-base lg:text-lg text-white/80 max-w-lg mb-8 leading-relaxed"
             >
               Uma plataforma completa para criar anúncios, gerar legendas e publicar automaticamente nas redes sociais. Tudo que sua loja precisa para vender mais.
+              <br />
+              <span className="font-bold text-white">TESTE POR 7 DIAS GRÁTIS</span>
             </motion.p>
 
             <motion.div
