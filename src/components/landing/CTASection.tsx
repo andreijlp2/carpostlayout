@@ -74,7 +74,7 @@ const CTASection = () => {
             >
               <motion.div whileHover={{ scale: 1.07, y: -3 }} whileTap={{ scale: 0.97 }}>
                 <Button size="xl" className="bg-[#16cbbe] text-white hover:brightness-110 shadow-cta font-bold rounded-full px-10">
-                  Começar Agora
+                  TESTE POR 7 DIAS
                   <ArrowRight className="ml-1 h-5 w-5" />
                 </Button>
               </motion.div>
