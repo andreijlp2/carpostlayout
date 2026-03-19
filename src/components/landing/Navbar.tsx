@@ -68,7 +68,7 @@ const Navbar = () => {
           </Button>
           <Button
             size="sm"
-            className="bg-cta text-cta-foreground hover:bg-cta/90 shadow-md font-semibold px-6 rounded-full"
+            className="bg-[#16cbbe] text-white hover:brightness-110 shadow-md font-semibold px-6 rounded-full"
           >
             Começar Agora
           </Button>
@@ -99,7 +99,7 @@ const Navbar = () => {
             ))}
             <Button
               size="sm"
-              className="w-full mt-3 bg-cta text-cta-foreground hover:bg-cta/90 font-semibold rounded-full"
+              className="w-full mt-3 bg-[#16cbbe] text-white hover:brightness-110 font-semibold rounded-full"
             >
               Começar Agora
             </Button>
