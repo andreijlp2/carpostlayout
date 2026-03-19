@@ -80,6 +80,8 @@ const HeroSection = () => {
               className="text-sm sm:text-base lg:text-lg text-white/80 max-w-lg mb-8 leading-relaxed"
             >
               Uma plataforma completa para criar anúncios, gerar legendas e publicar automaticamente nas redes sociais. Tudo que sua loja precisa para vender mais.
+              <br />
+              <span className="font-bold text-white">TESTE POR 7 DIAS GRÁTIS</span>
             </motion.p>
 
             <motion.div
@@ -91,9 +93,9 @@ const HeroSection = () => {
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.97 }}>
                 <Button
                   size="xl"
-                  className="bg-cta text-cta-foreground hover:brightness-110 shadow-cta font-bold rounded-full px-6 sm:px-8 w-full sm:w-auto"
+                  className="bg-gradient-to-r from-[#3b17c0] to-[#16cbbe] text-white hover:brightness-110 shadow-cta font-bold rounded-full px-6 sm:px-8 w-full sm:w-auto"
                 >
-                  Começar Agora
+                  Teste por 7 dias!
                   <ArrowRight className="ml-1 h-5 w-5" />
                 </Button>
               </motion.div>
