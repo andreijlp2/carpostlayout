@@ -74,7 +74,13 @@ const WhyChooseSection = () => {
             transition={{ duration: 0.7 }}
           >
             <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 flex items-center justify-center">
-              <img src={mascotThumbsup} alt="Mascote CarPost" className="w-full h-full object-contain drop-shadow-2xl" />
+              <motion.img
+                src={mascotThumbsup}
+                alt="Mascote CarPost"
+                className="w-full h-full object-contain drop-shadow-2xl"
+                animate={{ y: [0, -12, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              />
             </div>
           </motion.div>
 
