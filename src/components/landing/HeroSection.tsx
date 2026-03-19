@@ -93,7 +93,7 @@ const HeroSection = () => {
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.97 }}>
                 <Button
                   size="xl"
-                  className="bg-gradient-to-r from-[#3b17c0] to-[#16cbbe] text-white hover:brightness-110 shadow-cta font-bold rounded-full px-6 sm:px-8 w-full sm:w-auto"
+                  className="bg-[#8fc9ba] text-white hover:bg-[#149284] shadow-cta font-bold rounded-full px-6 sm:px-8 w-full sm:w-auto"
                 >
                   Teste por 7 dias!
                   <ArrowRight className="ml-1 h-5 w-5" />
