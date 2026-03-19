@@ -68,7 +68,7 @@ const Navbar = () => {
           </Button>
           <Button
             size="sm"
-            className="bg-[#8fc9ba] text-white hover:bg-[#149284] shadow-md font-semibold px-6 rounded-full"
+            className="bg-[#f37020] text-white hover:bg-[#f78f1e] shadow-md font-semibold px-6 rounded-full uppercase"
           >
             TESTE POR 7 DIAS
           </Button>
