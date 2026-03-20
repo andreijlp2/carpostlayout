@@ -94,7 +94,7 @@ const AdminSettings = () => {
                         type="color"
                         value={getSetting(setting.key)}
                         onChange={e => updateSetting(setting.key, e.target.value)}
-                        className="w-10 h-10 rounded-lg border border-input cursor-pointer"
+                        className="w-10 h-10 rounded-lg border border-input cursor-pointer bg-background"
                       />
                       <Input
                         value={getSetting(setting.key)}

@@ -176,8 +176,8 @@ const VisualEditor = () => {
       block_type: type,
       label: blockMeta[type].label,
       sort_order: blocks.length,
-      content: {},
-      styles: {},
+      content: {} as Record<string, string>,
+      styles: {} as Record<string, string>,
       is_visible: true,
     };
     const { data } = await supabase.from('cms_blocks').insert(newBlock).select().single();
