@@ -250,7 +250,7 @@ const VisualEditor = () => {
           <h1 className="text-xl font-bold text-foreground">{pageName || 'Carregando...'}</h1>
         </div>
         <div className="flex items-center gap-2">
-          {savedIndicator && <span className="text-xs text-green-600 font-medium">✓ Salvo!</span>}
+          {savedIndicator && <span className="text-xs text-primary font-medium">✓ Salvo!</span>}
           <Button variant="outline" onClick={() => setAddingBlock(true)} className="gap-2">
             <Plus className="w-4 h-4" /> Adicionar Bloco
           </Button>
