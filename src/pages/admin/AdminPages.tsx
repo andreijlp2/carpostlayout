@@ -39,7 +39,7 @@ const AdminPages = () => {
   const fetchPages = async () => {
     setLoading(true);
     const { data } = await supabase.from('cms_pages').select('*').order('updated_at', { ascending: false });
-    setPages(data ?? []);
+    setPages((data ?? []) as Page[]);
     setLoading(false);
   };
 

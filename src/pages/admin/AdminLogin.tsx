@@ -135,8 +135,8 @@ const AdminLogin = () => {
 
               {forgotSent ? (
                 <div className="text-center py-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Mail className="w-6 h-6 text-green-600" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <p className="text-sm text-foreground font-medium">Email enviado!</p>
                   <p className="text-xs text-muted-foreground mt-1">Verifique sua caixa de entrada.</p>
