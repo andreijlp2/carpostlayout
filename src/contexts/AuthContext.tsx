@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
-import type { AppRole } from '@/integrations/supabase/types';
+
+export type AppRole = 'admin' | 'editor' | 'user';
 
 interface AuthContextType {
   user: User | null;
@@ -26,32 +27,21 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const fetchUserRole = async (userId: string) => {
     try {
-      const { data } = await supabase
+      const { data: allRoles } = await supabase
         .from('user_roles')
         .select('role')
-        .eq('user_id', userId)
-        .order('role')
-        .limit(1)
-        .single();
-      
-      if (data) {
-        // Return highest privilege role
-        const { data: allRoles } = await supabase
-          .from('user_roles')
-          .select('role')
-          .eq('user_id', userId);
-        
-        if (allRoles) {
-          const roleOrder: AppRole[] = ['admin', 'editor', 'user'];
-          for (const r of roleOrder) {
-            if (allRoles.some(row => row.role === r)) {
-              setRole(r);
-              return;
-            }
+        .eq('user_id', userId);
+
+      if (allRoles && allRoles.length > 0) {
+        const roleOrder: AppRole[] = ['admin', 'editor', 'user'];
+        for (const r of roleOrder) {
+          if (allRoles.some(row => row.role === r)) {
+            setRole(r);
+            return;
           }
         }
-        setRole(data.role);
       }
+      setRole('user');
     } catch {
       setRole(null);
     }
@@ -64,7 +54,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setSession(session);
         setUser(session?.user ?? null);
         if (session?.user) {
-          await fetchUserRole(session.user.id);
+          setTimeout(() => fetchUserRole(session.user.id), 0);
         } else {
           setRole(null);
         }
@@ -86,7 +76,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const signIn = async (email: string, password: string) => {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
-    return { error };
+    return { error: error as Error | null };
   };
 
   const signUp = async (email: string, password: string, fullName: string) => {
@@ -98,7 +88,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         emailRedirectTo: window.location.origin,
       },
     });
-    return { error };
+    return { error: error as Error | null };
   };
 
   const signOut = async () => {
@@ -109,7 +99,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/reset-password`,
     });
-    return { error };
+    return { error: error as Error | null };
   };
 
   return (
