@@ -5,10 +5,10 @@ import { Wand2, Eye, Share2, Car, Sparkles, BarChart3 } from "lucide-react";
 const services = [
   { icon: Wand2, title: "Gerador de Anúncios", desc: "Crie anúncios profissionais automaticamente para cada veículo do seu estoque com poucos cliques." },
   { icon: Eye, title: "Pré compra", desc: "A IA analisa os dados do veículo e identifica características automaticamente para o lojista fazer uma compra segura." },
-  { icon: Share2, title: "Publicação Automática", desc: "Publique em Facebook, Instagram, OLX e outros portais automaticamente com um único clique." },
+  { icon: Share2, title: "Publicação Automática", desc: "Publique no Facebook, Instagram, Catalogo Facebook e outros portais automaticamente com um único clique." },
   { icon: Car, title: "Gestão de Estoque", desc: "Organize todos os veículos da loja em um painel visual com filtros, busca e controle completo." },
   { icon: Sparkles, title: "Legendas Virais com IA", desc: "Gere legendas otimizadas para redes sociais que aumentam o engajamento e atraem mais clientes." },
-  { icon: BarChart3, title: "Automação de Marketing", desc: "Automatize campanhas, agendamento de posts e relatórios de desempenho em tempo real." },
+  { icon: BarChart3, title: "Automação de Marketing", desc: "Automatize as postagens com poucos cliques e tenha seu criativo profissional em tempo real e publique nas redes sociais." },
 ];
 
 const cardVariants = {
