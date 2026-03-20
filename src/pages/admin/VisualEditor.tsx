@@ -213,7 +213,7 @@ const VisualEditor = () => {
   const saveAll = async () => {
     setSaving(true);
     await Promise.all(blocks.map(b =>
-      supabase.from('cms_blocks').update({ content: b.content, styles: b.styles, is_visible: b.is_visible }).eq('id', b.id)
+      supabase.from('cms_blocks').update({ content: b.content as Record<string, string>, styles: b.styles as Record<string, string>, is_visible: b.is_visible }).eq('id', b.id)
     ));
     if (pageId) {
       await supabase.from('cms_pages').update({ updated_by: user?.id }).eq('id', pageId);
