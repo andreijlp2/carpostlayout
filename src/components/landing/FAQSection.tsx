@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: "Existe um período de teste gratuito?",
-    a: "Sim! Oferecemos 30 dias gratuitos para você testar todas as funcionalidades da plataforma sem compromisso. Não é necessário cartão de crédito para começar.",
+    a: "Sim! Oferecemos 7 dias gratuitos para você testar todas as funcionalidades da plataforma sem compromisso. Não é necessário cartão de crédito para começar.",
   },
   {
     q: "Posso cancelar minha assinatura a qualquer momento?",
