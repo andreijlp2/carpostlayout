@@ -5,7 +5,7 @@ import { ClipboardList, Wand2, Share2 } from "lucide-react";
 const steps = [
   { icon: ClipboardList, step: "01", title: "Cadastre seus Veículos", desc: "Adicione os veículos do seu estoque de forma rápida e organizada com dados completos." },
   { icon: Wand2, step: "02", title: "Gere Anúncios Automaticamente", desc: "A IA cria textos profissionais, legendas e descrições otimizadas para cada veículo." },
-  { icon: Share2, step: "03", title: "Publique em Todas as Redes", desc: "Publique automaticamente no Facebook, Instagram, OLX e outros portais com um clique." },
+  { icon: Share2, step: "03", title: "Publique em Todas as Redes", desc: "Publique automaticamente no Facebook, Instagram, Catalogo do WhatsApp OLX e nos principais portais com um clique." },
 ];
 
 const HowItWorksSection = () => {
