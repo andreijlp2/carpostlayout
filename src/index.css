@@ -138,15 +138,29 @@
 
   .marquee-track {
     display: flex;
-    animation: marquee 35s linear infinite;
+    animation: marquee 38s linear infinite;
   }
 
   .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .marquee-track-reverse {
+    display: flex;
+    animation: marquee-reverse 42s linear infinite;
+  }
+
+  .marquee-track-reverse:hover {
     animation-play-state: paused;
   }
 }
 
 @keyframes marquee {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-33.333%); }
+  100% { transform: translateX(0); }
 }
