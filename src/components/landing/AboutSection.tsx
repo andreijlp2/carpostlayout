@@ -31,51 +31,51 @@ const AboutSection = () => {
       </div>
 
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Esquerda — Mockup de Browser */}
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             style={{ y: imageY }}
-            className="relative"
+            className="relative order-2 lg:order-1 w-full max-w-full"
           >
             {/* Sombra de profundidade atrás */}
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-violet-500/20 rounded-3xl blur-2xl opacity-50" />
 
             {/* Frame do computador/browser */}
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-[#1e1e2e]">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-[#1e1e2e] w-full max-w-full">
               
               {/* Barra do navegador */}
-              <div className="flex items-center gap-3 px-4 py-3 bg-[#2a2a3d] border-b border-white/10">
+              <div className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 sm:py-3 bg-[#2a2a3d] border-b border-white/10">
                 {/* Botões semáforo */}
-                <div className="flex items-center gap-2 flex-shrink-0">
-                  <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-                  <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-                  <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+                <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ff5f57]" />
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#febc2e]" />
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#28c840]" />
                 </div>
 
                 {/* Barra de URL */}
-                <div className="flex-1 flex items-center gap-2 bg-[#1e1e2e] rounded-lg px-3 py-1.5 text-xs text-white/50 border border-white/10">
-                  <Shield className="w-3 h-3 text-emerald-400 flex-shrink-0" />
-                  <span className="text-emerald-400/80 font-mono truncate">app.carpost.com.br/dashboard/marketing</span>
+                <div className="flex-1 flex items-center gap-2 bg-[#1e1e2e] rounded-lg px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs text-white/50 border border-white/10 overflow-hidden">
+                  <Shield className="w-3 h-3 text-emerald-400 flex-shrink-0 hidden flex-shrink sm:block" />
+                  <span className="text-emerald-400/80 font-mono truncate w-full">app.carpost.com.br/dashboard/marketing</span>
                 </div>
 
                 {/* Ícones de ação */}
-                <div className="flex items-center gap-2 flex-shrink-0">
+                <div className="flex items-center gap-2 flex-shrink-0 hidden sm:flex">
                   <Globe className="w-4 h-4 text-white/30" />
                   <Wifi className="w-4 h-4 text-white/30" />
                 </div>
               </div>
 
               {/* Conteúdo — screenshot do sistema */}
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden w-full bg-black">
                 <img
                   src={systemScreenshot}
                   alt="CarPost — Painel de Estoque de Veículos"
-                  className="w-full h-auto block"
+                  className="w-full h-auto block object-cover"
                   loading="lazy"
                 />
                 {/* Efeito de shine ao entrar na viewport */}
@@ -91,43 +91,44 @@ const AboutSection = () => {
 
             {/* Badge flutuante — usuários ativos */}
             <motion.div
-              className="absolute -bottom-5 -right-3 sm:right-6 flex items-center gap-3 bg-background border border-border rounded-2xl px-4 py-3 shadow-xl"
+              className="absolute -bottom-4 sm:-bottom-5 -right-2 sm:right-6 flex items-center gap-2 sm:gap-3 bg-background border border-border rounded-xl sm:rounded-2xl px-3 sm:px-4 py-2 sm:py-3 shadow-xl z-10 scale-[0.85] sm:scale-100 origin-bottom-right"
               initial={{ scale: 0, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.7, type: "spring", stiffness: 220 }}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/15 flex items-center justify-center flex-shrink-0">
-                <span className="text-xl">🚗</span>
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-emerald-500/15 flex items-center justify-center flex-shrink-0">
+                <span className="text-lg sm:text-xl">🚗</span>
               </div>
-              <div>
-                <div className="text-base font-black text-foreground font-heading leading-none">+300</div>
-                <div className="text-xs text-muted-foreground mt-0.5">Lojas usando agora</div>
+              <div className="min-w-0">
+                <div className="text-sm sm:text-base font-black text-foreground font-heading leading-none whitespace-nowrap">+300</div>
+                <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 whitespace-nowrap">Lojas usando agora</div>
               </div>
-              <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse ml-1 flex-shrink-0" />
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-pulse ml-0.5 sm:ml-1 flex-shrink-0" />
             </motion.div>
 
             {/* Badge flutuante — IA */}
             <motion.div
-              className="absolute -top-4 -left-3 sm:left-6 flex items-center gap-2 bg-gradient-to-r from-primary to-violet-600 rounded-xl px-3 py-2 shadow-lg"
+              className="absolute -top-3 sm:-top-4 -left-2 sm:left-6 flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-primary to-violet-600 rounded-lg sm:rounded-xl px-2 sm:px-3 py-1.5 sm:py-2 shadow-lg z-10 scale-[0.85] sm:scale-100 origin-top-left"
               initial={{ scale: 0, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.9, type: "spring", stiffness: 200 }}
               whileHover={{ scale: 1.05 }}
             >
-              <span className="text-lg">✨</span>
-              <span className="text-xs font-bold text-white whitespace-nowrap">IA Integrada</span>
+              <span className="text-base sm:text-lg leading-none">✨</span>
+              <span className="text-[10px] sm:text-xs font-bold text-white whitespace-nowrap">IA Integrada</span>
             </motion.div>
           </motion.div>
 
           {/* Direita — Conteúdo */}
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="order-1 lg:order-2 w-full max-w-full overflow-hidden sm:overflow-visible"
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
