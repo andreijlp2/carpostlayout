@@ -1,8 +1,16 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, Star, TrendingUp, Zap } from "lucide-react";
+import { ArrowRight, Play, Star, TrendingUp, Zap, ChevronLeft, ChevronRight, Shield, Globe, Wifi } from "lucide-react";
 import heroBottomShape from "@/assets/hero-bottom-shape.png";
-import { motion } from "framer-motion";
-import heroMockup from "@/assets/hero-mockup.png";
+import { motion, AnimatePresence } from "framer-motion";
+import img01 from "@/assets/01.png";
+import img02 from "@/assets/02.png";
+import img03 from "@/assets/03.png";
+import img04 from "@/assets/04.png";
+import img05 from "@/assets/05.png";
+import macbookScreen from "@/assets/macbook-screen.png";
+
+const carouselImages = [img01, img02, img03, img04, img05];
 
 const stats = [
   { icon: TrendingUp, value: "+300", label: "Lojas Ativas" },
@@ -11,6 +19,15 @@ const stats = [
 ];
 
 const HeroSection = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % carouselImages.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative bg-hero-gradient pt-28 pb-0 sm:pt-36 lg:pt-44 overflow-hidden">
 
@@ -126,13 +143,16 @@ const HeroSection = () => {
               </motion.div>
               <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
                 <Button
+                  asChild
                   size="xl"
                   className="border-2 border-white/25 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 hover:border-white/40 font-semibold rounded-2xl px-8 w-full sm:w-auto gap-2"
                 >
-                  <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">
-                    <Play className="h-3 w-3 ml-0.5 fill-white text-white" />
-                  </div>
-                  Ver Demonstração
+                  <a href="#demonstracao">
+                    <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">
+                      <Play className="h-3 w-3 ml-0.5 fill-white text-white" />
+                    </div>
+                    Ver Demonstração
+                  </a>
                 </Button>
               </motion.div>
             </motion.div>
@@ -158,25 +178,88 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Right — Mockup */}
+          {/* Right — Mockup (Imagem + Carrossel) */}
           <motion.div
             initial={{ opacity: 0, x: 60, scale: 0.92 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex items-center justify-center"
+            className="relative flex flex-col items-center justify-center w-full max-w-full"
           >
             {/* Anel de glow atrás do mockup */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-violet-400/20 rounded-3xl blur-3xl scale-90" />
 
-            <motion.img
-              src={heroMockup}
-              alt="Plataforma CarPost — Dashboard e App"
-              // @ts-ignore
-              fetchpriority="high"
-              className="relative w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl h-auto drop-shadow-[0_30px_80px_rgba(100,60,240,0.35)]"
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            />
+            <div
+              className="relative w-full max-w-2xl lg:max-w-3xl xl:max-w-[70rem] h-auto drop-shadow-[0_40px_100px_rgba(100,60,240,0.45)] mx-auto z-10 group"
+            >
+              {/* Imagem do Frame do MacBook (Carcaça enviada pelo usuário) */}
+              {/* A imagem deve ser salva como src/assets/macbook-screen.png */}
+              <img 
+                src={macbookScreen} 
+                alt="MacBook Frame" 
+                className="w-full h-auto block relative z-10 pointer-events-none select-none drop-shadow-[0_25px_40px_rgba(0,0,0,0.7)]"
+              />
+
+              {/* Área da Tela (O espaço em branco do navegador onde ficará o carrossel) */}
+              {/* Usando % exatas para preencher o branco do frame colado */}
+              <div 
+                className="absolute z-20 overflow-hidden bg-black flex items-center justify-center"
+                style={{
+                  top: "13.3%",       // Distância do topo (abaixo da barra de endereço)
+                  bottom: "22.2%",    // Distância do fundo (acima do dock de apps)
+                  left: "13.2%",      // Margem esquerda
+                  right: "13.2%",     // Margem direita
+                  borderBottomLeftRadius: "6px",
+                  borderBottomRightRadius: "6px"
+                }}
+              >
+                <AnimatePresence mode="popLayout">
+                  <motion.img
+                    key={currentImage}
+                    src={carouselImages[currentImage]}
+                    alt={`CarPost Plataforma Screenshot ${currentImage + 1}`}
+                    className="absolute inset-0 w-full h-full object-contain object-top bg-[#0f0f13]"
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    fetchPriority="high"
+                  />
+                </AnimatePresence>
+
+                {/* Overlay gradiente inferior apenas para dar contraste aos controles */}
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+              
+                {/* Setas de Navegação */}
+                <div className="absolute inset-y-0 left-0 w-12 sm:w-16 flex items-center justify-start pl-1 sm:pl-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <button
+                    onClick={() => setCurrentImage((prev) => (prev - 1 + carouselImages.length) % carouselImages.length)}
+                    className="w-7 h-7 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all hover:scale-110"
+                  >
+                    <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </button>
+                </div>
+                
+                <div className="absolute inset-y-0 right-0 w-12 sm:w-16 flex items-center justify-end pr-1 sm:pr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <button
+                    onClick={() => setCurrentImage((prev) => (prev + 1) % carouselImages.length)}
+                    className="w-7 h-7 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all hover:scale-110"
+                  >
+                    <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </button>
+                </div>
+
+                {/* Dots (Indicadores do Carrossel) */}
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-30 opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                  {carouselImages.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrentImage(i)}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${i === currentImage ? "bg-primary w-5" : "bg-white/50 hover:bg-white/80 w-1.5"}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
           </motion.div>
 
         </div>

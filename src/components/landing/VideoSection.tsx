@@ -7,7 +7,7 @@ const VideoSection = () => {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <section className="py-20 lg:py-32 relative overflow-hidden">
+    <section id="demonstracao" className="py-20 lg:py-32 relative overflow-hidden">
       {/* Fundo azul gradiente combinando com o site */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[hsl(240,90%,14%)] via-[hsl(250,80%,18%)] to-[hsl(215,100%,20%)]" />
       {/* Brilhos decorativos */}
