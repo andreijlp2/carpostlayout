@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { SocialButtons } from "./SocialButtons";
 
 import logoAm from "@/assets/logo-am.png";
 import logoAutototti from "@/assets/logo-autototti.png";
@@ -69,6 +70,9 @@ const LogoCarouselSection = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
+        {/* Redes Sociais */}
+        <SocialButtons className="mb-16" />
+
         <div className="flex items-center justify-center gap-3 mb-4">
           <div className="h-px flex-1 max-w-24 bg-gradient-to-r from-transparent to-border" />
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">

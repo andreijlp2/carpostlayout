@@ -1,5 +1,6 @@
 import { ArrowRight, Check } from "lucide-react";
 import { motion } from "framer-motion";
+import { SocialButtons } from "./SocialButtons";
 
 const perks = [
   "7 dias grátis, sem cartão",
@@ -150,6 +151,7 @@ const CTASection = () => {
                   </div>
                 ))}
               </motion.div>
+
             </div>
           </div>
         </motion.div>

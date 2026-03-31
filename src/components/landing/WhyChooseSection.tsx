@@ -1,6 +1,7 @@
 import { motion, useAnimationControls } from "framer-motion";
 import { Shield, Zap, Globe, BarChart3, Lock, Headphones } from "lucide-react";
 import mascotThumbsup from "@/assets/mascot-thumbsup.png";
+import { SocialButtons } from "./SocialButtons";
 
 const leftFeatures = [
   {
@@ -120,41 +121,54 @@ const WhyChooseSection = () => {
             ))}
           </div>
 
-          {/* Centro — Mascote */}
-          <motion.div
-            className="hidden lg:flex justify-center items-center relative px-6"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
-            {/* Anel sutil de fundo */}
+          {/* Centro — Mascote e Botões */}
+          <div className="flex flex-col items-center justify-center">
             <motion.div
-              className="absolute w-72 h-72 rounded-full border border-primary/10"
-              animate={{ opacity: [0.3, 0.08, 0.3] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-
-            {/* Mascote flutuando suavemente */}
-            <motion.div
-              className="relative z-10 w-96 h-96"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="relative px-6 flex justify-center items-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              <img
-                src={mascotThumbsup}
-                alt="Mascote CarPost"
-                className="w-full h-full object-contain drop-shadow-2xl"
-              />
-
-              {/* Sombra no chão */}
+              {/* Anel sutil de fundo */}
               <motion.div
-                className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-32 h-5 bg-black/10 rounded-full blur-md"
-                animate={{ scaleX: [1, 0.8, 1], opacity: [0.4, 0.15, 0.4] }}
+                className="absolute w-72 h-72 rounded-full border border-primary/10"
+                animate={{ opacity: [0.3, 0.08, 0.3] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
+
+              {/* Mascote flutuando suavemente */}
+              <motion.div
+                className="relative z-10 w-80 h-80 lg:w-96 lg:h-96"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <img
+                  src={mascotThumbsup}
+                  alt="Mascote CarPost"
+                  className="w-full h-full object-contain drop-shadow-2xl"
+                />
+
+                {/* Sombra no chão */}
+                <motion.div
+                  className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-32 h-5 bg-black/10 rounded-full blur-md"
+                  animate={{ scaleX: [1, 0.8, 1], opacity: [0.4, 0.15, 0.4] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                />
+              </motion.div>
             </motion.div>
-          </motion.div>
+
+            {/* Botões redes sociais abaixo do mascote */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="mt-8 lg:mt-10"
+            >
+              <SocialButtons className="scale-90 lg:scale-100" />
+            </motion.div>
+          </div>
 
           {/* Coluna direita */}
           <div className="space-y-4">
