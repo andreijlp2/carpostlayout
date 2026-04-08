@@ -1,8 +1,16 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+
+  # 1. Ignorar o router de emergência e a pasta api
+  RewriteRule ^api\.php - [L]
+  RewriteRule ^api/ - [L]
+
+  # 2. Servir arquivos reais (imagens, scripts, etc)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # 3. Fallback para index.html (React Router)
+  RewriteRule . index.html [L]
 </IfModule>

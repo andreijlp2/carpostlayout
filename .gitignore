@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Sensitive — never commit credentials
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+dist.zip

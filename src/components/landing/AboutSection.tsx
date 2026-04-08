@@ -179,9 +179,15 @@ const AboutSection = () => {
             {/* CTA */}
             <div className="flex flex-wrap items-center gap-4">
               <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
-                <Button className="bg-gradient-to-r from-primary to-violet-600 text-white hover:opacity-90 rounded-full px-8 font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
-                  Teste Grátis por 7 Dias
-                </Button>
+                <a 
+                  href="https://app.carpost.com.br/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <Button className="bg-gradient-to-r from-primary to-violet-600 text-white hover:opacity-90 rounded-full px-8 font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                    Teste Grátis por 7 Dias
+                  </Button>
+                </a>
               </motion.div>
               <motion.div whileHover={{ x: 4 }}>
                 <a href="#como-funciona" className="flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-primary transition-colors duration-300">

@@ -1,8 +1,9 @@
 import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { API_URL } from "@/lib/api-config";
 
-const testimonials = [
+const fallbackTestimonials = [
   {
     name: "Carlos Silva",
     role: "Dono da Auto Silva",
@@ -35,19 +36,57 @@ const testimonials = [
   },
 ];
 
+const gradients = [
+  "from-violet-500 to-indigo-600",
+  "from-emerald-500 to-teal-500",
+  "from-blue-500 to-cyan-500",
+  "from-amber-500 to-orange-500",
+  "from-pink-500 to-rose-500",
+  "from-cyan-500 to-blue-500",
+];
+
 const TestimonialsSection = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [testimonials, setTestimonials] = useState(fallbackTestimonials);
+
+  useEffect(() => {
+    fetchTestimonials();
+  }, []);
+
+  const fetchTestimonials = async () => {
+    try {
+      const response = await fetch(`${API_URL}/testimonials`);
+      if (response.ok) {
+        const data = await response.json();
+        if (data.length > 0) {
+          const formatted = data.map((t, i) => ({
+            name: t.client_name,
+            role: "Cliente CarPost",
+            company: "Cliente",
+            text: t.content,
+            avatar: t.client_name.split(" ").map(n => n[0]).join("").substring(0, 2).toUpperCase(),
+            gradient: gradients[i % gradients.length],
+            stars: t.stars,
+            highlight: `${t.stars}⭐`,
+          }));
+          setTestimonials(formatted);
+        }
+      }
+    } catch (error) {
+      console.log("Usando depoimentos padrão");
+    }
+  };
 
   const next = useCallback(() => {
     setDirection(1);
     setCurrent((prev) => (prev + 1) % testimonials.length);
-  }, []);
+  }, [testimonials.length]);
 
   const prev = useCallback(() => {
     setDirection(-1);
     setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  }, []);
+  }, [testimonials.length]);
 
   useEffect(() => {
     const interval = setInterval(next, 6000);
@@ -64,12 +103,10 @@ const TestimonialsSection = () => {
 
   return (
     <section id="depoimentos" className="py-20 lg:py-32 relative overflow-hidden">
-      {/* Fundo decorativo */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-muted/40 via-transparent to-muted/20" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/5 rounded-full blur-[120px] -z-10" />
 
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Header */}
         <motion.div
           className="text-center max-w-2xl mx-auto mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -92,10 +129,8 @@ const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        {/* Depoimento principal */}
         <div className="max-w-4xl mx-auto">
           <div className="relative">
-            {/* Glow de fundo do card */}
             <div className={`absolute -inset-4 bg-gradient-to-r ${t.gradient} opacity-10 rounded-3xl blur-2xl transition-all duration-700`} />
 
             <AnimatePresence mode="wait" custom={direction}>
@@ -109,13 +144,10 @@ const TestimonialsSection = () => {
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 className="relative bg-card border border-border rounded-2xl overflow-hidden shadow-xl"
               >
-                {/* Linha de acento superior colorida */}
                 <div className={`h-1.5 w-full bg-gradient-to-r ${t.gradient}`} />
 
                 <div className="grid md:grid-cols-[1fr_220px] gap-0">
-                  {/* Texto */}
                   <div className="p-8 sm:p-10">
-                    {/* Aspas grandes decorativas */}
                     <div className={`text-8xl font-black leading-none text-transparent bg-clip-text bg-gradient-to-br ${t.gradient} opacity-15 mb-2 font-heading select-none`}>
                       "
                     </div>
@@ -124,15 +156,13 @@ const TestimonialsSection = () => {
                       {t.text}
                     </p>
 
-                    {/* Estrelas */}
                     <div className="flex items-center gap-1 mb-6">
                       {[...Array(t.stars)].map((_, si) => (
                         <Star key={si} className="h-4 w-4 fill-amber-400 text-amber-400" />
                       ))}
-                      <span className="ml-2 text-xs text-muted-foreground font-medium">5.0</span>
+                      <span className="ml-2 text-xs text-muted-foreground font-medium">{t.stars}.0</span>
                     </div>
 
-                    {/* Autor */}
                     <div className="flex items-center gap-4">
                       <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${t.gradient} flex items-center justify-center text-white font-black text-sm font-heading shadow-lg`}>
                         {t.avatar}
@@ -144,7 +174,6 @@ const TestimonialsSection = () => {
                     </div>
                   </div>
 
-                  {/* Painel lateral de destaque */}
                   <div className={`hidden md:flex flex-col items-center justify-center bg-gradient-to-br ${t.gradient} p-8 text-white relative overflow-hidden`}>
                     <div className="absolute inset-0 opacity-20" style={{
                       backgroundImage: "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 50%)"
@@ -165,9 +194,7 @@ const TestimonialsSection = () => {
             </AnimatePresence>
           </div>
 
-          {/* Navegação */}
           <div className="flex items-center justify-between mt-8">
-            {/* Avatares miniatura */}
             <div className="flex items-center gap-3">
               {testimonials.map((item, i) => (
                 <button
@@ -189,7 +216,6 @@ const TestimonialsSection = () => {
               ))}
             </div>
 
-            {/* Botões prev/next */}
             <div className="flex items-center gap-2">
               <motion.button
                 onClick={prev}

@@ -80,7 +80,9 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center gap-3">
           {/* Botão Entrar */}
           <motion.a
-            href="#"
+            href="https://app.carpost.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             className={`px-5 py-2 rounded-xl text-sm font-semibold border transition-all duration-200 ${
@@ -94,7 +96,9 @@ const Navbar = () => {
 
           {/* Botão Teste */}
           <motion.a
-            href="#planos"
+            href="https://app.carpost.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.04, y: -1 }}
             whileTap={{ scale: 0.97 }}
             className="relative flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#f37020] to-[#f59e0b] text-white text-sm font-bold shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all duration-300 overflow-hidden group"
@@ -164,14 +168,18 @@ const Navbar = () => {
             {/* CTAs mobile */}
             <div className="flex flex-col gap-3 pt-4 border-t border-border">
               <a
-                href="#"
+                href="https://app.carpost.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-center py-3 px-6 rounded-xl border border-border text-sm font-semibold text-foreground hover:border-primary/40 hover:text-primary transition-all duration-200"
                 onClick={() => setOpen(false)}
               >
                 Entrar
               </a>
               <a
-                href="#planos"
+                href="https://app.carpost.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#f37020] to-[#f59e0b] text-white text-sm font-bold shadow-lg shadow-orange-500/30"
                 onClick={() => setOpen(false)}
               >

@@ -1,0 +1,17 @@
+# HTACCESS para API PHP
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /api/
+    
+    # Se arquivo existe, serve diretamente
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # Caso contrário, redireciona para index.php
+    RewriteRule ^(.+)$ index.php [QSA,L]
+</IfModule>
+
+# Permite acesso às imagens carregadas
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>

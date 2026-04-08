@@ -115,7 +115,9 @@ const CTASection = () => {
                 transition={{ delay: 0.5, duration: 0.6 }}
               >
                 <motion.a
-                  href="#planos"
+                  href="https://app.carpost.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.05, y: -3 }}
                   whileTap={{ scale: 0.97 }}
                   className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-2xl bg-[#f37020] hover:bg-[#f78f1e] text-white font-bold text-base shadow-2xl shadow-orange-500/40 transition-all duration-300 uppercase tracking-wide"

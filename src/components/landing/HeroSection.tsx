@@ -170,13 +170,19 @@ const HeroSection = () => {
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10"
             >
               <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.97 }}>
-                <Button
-                  size="xl"
-                  className="bg-[#f37020] text-white hover:bg-[#f78f1e] shadow-[0_8px_32px_rgba(243,112,32,0.5)] font-bold rounded-2xl px-8 w-full sm:w-auto uppercase tracking-wide text-sm"
+                <a 
+                  href="https://app.carpost.com.br/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
-                  Teste por 7 dias Grátis
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                  <Button
+                    size="xl"
+                    className="bg-[#f37020] text-white hover:bg-[#f78f1e] shadow-[0_8px_32px_rgba(243,112,32,0.5)] font-bold rounded-2xl px-8 w-full sm:w-auto uppercase tracking-wide text-sm"
+                  >
+                    Teste por 7 dias Grátis
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </a>
               </motion.div>
               <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
                 <Button
